@@ -3539,6 +3539,7 @@ export interface Application {
   passwordlessConfiguration?: PasswordlessConfiguration;
   registrationConfiguration?: RegistrationConfiguration;
   registrationDeletePolicy?: ApplicationRegistrationDeletePolicy;
+  registrationEditFormId?: UUID;
   roles?: Array<ApplicationRole>;
   samlv2Configuration?: SAMLv2Configuration;
   tenantId?: UUID;
@@ -4579,6 +4580,7 @@ export interface FormResponse {
  * @author Daniel DeGroff
  */
 export interface FormStep {
+  description?: string;
   fields?: Array<UUID>;
 }
 
@@ -4586,7 +4588,9 @@ export interface FormStep {
  * @author Daniel DeGroff
  */
 export enum FormType {
-  registration = "registration"
+  registration = "",
+  adminRegistrationEdit = "registration.",
+  adminUserEdit = "user."
 }
 
 /**
@@ -6058,6 +6062,7 @@ export interface Tenant {
   passwordValidationRules?: PasswordValidationRules;
   themeId?: UUID;
   userDeletePolicy?: TenantUserDeletePolicy;
+  userEditFormId?: UUID;
 }
 
 /**
