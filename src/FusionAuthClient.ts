@@ -4633,7 +4633,6 @@ export interface FormResponse {
  * @author Daniel DeGroff
  */
 export interface FormStep {
-  description?: string;
   fields?: Array<UUID>;
 }
 
@@ -4641,9 +4640,9 @@ export interface FormStep {
  * @author Daniel DeGroff
  */
 export enum FormType {
-  registration = "",
-  adminRegistrationEdit = "registration.",
-  adminUserEdit = "user."
+  registration = "registration",
+  adminRegistrationEdit = "adminRegistrationEdit",
+  adminUserEdit = "adminUserEdit"
 }
 
 /**
@@ -5812,6 +5811,13 @@ export interface RegistrationConfiguration extends Enableable {
   middleName?: Requirable;
   mobilePhone?: Requirable;
   type?: RegistrationType;
+}
+
+/**
+ * @author Brett Guy
+ */
+export interface RegistrationEditRequest {
+  userRegistration?: UserRegistration;
 }
 
 /**
