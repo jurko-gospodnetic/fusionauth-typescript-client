@@ -3610,7 +3610,7 @@ export interface ApplicationEvent {
  * @author Daniel DeGroff
  */
 export interface ApplicationFormConfiguration {
-  registrationFormId?: UUID;
+  adminRegistrationFormId?: UUID;
 }
 
 /**
