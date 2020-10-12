@@ -3572,6 +3572,7 @@ export interface Application {
   cleanSpeakConfiguration?: CleanSpeakConfiguration;
   data?: Record<string, any>;
   emailConfiguration?: ApplicationEmailConfiguration;
+  formConfiguration?: ApplicationFormConfiguration;
   id?: UUID;
   insertInstant?: number;
   jwtConfiguration?: JWTConfiguration;
@@ -3583,7 +3584,6 @@ export interface Application {
   passwordlessConfiguration?: PasswordlessConfiguration;
   registrationConfiguration?: RegistrationConfiguration;
   registrationDeletePolicy?: ApplicationRegistrationDeletePolicy;
-  registrationEditFormId?: UUID;
   roles?: Array<ApplicationRole>;
   samlv2Configuration?: SAMLv2Configuration;
   tenantId?: UUID;
@@ -3604,6 +3604,13 @@ export interface ApplicationEmailConfiguration {
  * @author Brian Pontarelli
  */
 export interface ApplicationEvent {
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface ApplicationFormConfiguration {
+  registrationFormId?: UUID;
 }
 
 /**
@@ -4641,8 +4648,8 @@ export interface FormStep {
  */
 export enum FormType {
   registration = "registration",
-  adminRegistrationEdit = "adminRegistrationEdit",
-  adminUserEdit = "adminUserEdit"
+  adminRegistration = "adminRegistration",
+  adminUser = "adminUser"
 }
 
 /**
@@ -6118,6 +6125,7 @@ export interface Tenant {
   externalIdentifierConfiguration?: ExternalIdentifierConfiguration;
   failedAuthenticationConfiguration?: FailedAuthenticationConfiguration;
   familyConfiguration?: FamilyConfiguration;
+  formConfiguration?: TenantFormConfiguration;
   httpSessionMaxInactiveInterval?: number;
   id?: UUID;
   insertInstant?: number;
@@ -6132,13 +6140,19 @@ export interface Tenant {
   passwordValidationRules?: PasswordValidationRules;
   themeId?: UUID;
   userDeletePolicy?: TenantUserDeletePolicy;
-  userEditFormId?: UUID;
 }
 
 /**
  * @author Brian Pontarelli
  */
 export interface Tenantable {
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface TenantFormConfiguration {
+  userFormId?: UUID;
 }
 
 /**
