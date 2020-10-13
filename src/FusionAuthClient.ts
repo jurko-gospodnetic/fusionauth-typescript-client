@@ -6152,7 +6152,7 @@ export interface Tenantable {
  * @author Daniel DeGroff
  */
 export interface TenantFormConfiguration {
-  userFormId?: UUID;
+  adminUserFormId?: UUID;
 }
 
 /**
