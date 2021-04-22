@@ -7722,6 +7722,7 @@ export interface Tenant {
   state?: ObjectState;
   themeId?: UUID;
   userDeletePolicy?: TenantUserDeletePolicy;
+  usernameConfiguration?: TenantUsernameConfiguration;
 }
 
 /**
@@ -7776,6 +7777,13 @@ export interface TenantResponse {
  */
 export interface TenantUserDeletePolicy {
   unverified?: TimeBasedDeletePolicy;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface TenantUsernameConfiguration {
+  unique?: UniqueUsernameConfiguration;
 }
 
 /**
@@ -8015,6 +8023,16 @@ export interface UIConfiguration {
   headerColor?: string;
   logoURL?: string;
   menuFontColor?: string;
+}
+
+export enum UniqueUsernameAppendPolicy {
+  Always = "Always",
+  OnDuplicate = "OnDuplicate"
+}
+
+export interface UniqueUsernameConfiguration extends Enableable {
+  appendPolicy?: UniqueUsernameAppendPolicy;
+  numberOfDigits?: number;
 }
 
 /**
