@@ -4569,6 +4569,7 @@ export interface Application {
   samlv2Configuration?: SAMLv2Configuration;
   state?: ObjectState;
   tenantId?: UUID;
+  themeId?: UUID;
   verificationEmailTemplateId?: UUID;
   verifyRegistration?: boolean;
 }
