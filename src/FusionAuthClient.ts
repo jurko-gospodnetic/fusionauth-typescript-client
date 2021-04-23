@@ -8025,13 +8025,7 @@ export interface UIConfiguration {
   menuFontColor?: string;
 }
 
-export enum UniqueUsernameAppendPolicy {
-  Always = "Always",
-  OnDuplicate = "OnDuplicate"
-}
-
 export interface UniqueUsernameConfiguration extends Enableable {
-  appendPolicy?: UniqueUsernameAppendPolicy;
   numberOfDigits?: number;
 }
 
