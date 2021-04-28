@@ -8029,6 +8029,7 @@ export interface UIConfiguration {
 
 export interface UniqueUsernameConfiguration extends Enableable {
   numberOfDigits?: number;
+  separator?: string;
 }
 
 /**
