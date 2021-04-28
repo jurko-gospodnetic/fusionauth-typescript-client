@@ -7666,6 +7666,7 @@ export interface Templates {
   accountTwoFactorIndex?: string;
   emailComplete?: string;
   emailSend?: string;
+  emailSent?: string;
   emailVerificationRequired?: string;
   emailVerify?: string;
   helpers?: string;
@@ -7689,6 +7690,7 @@ export interface Templates {
   passwordSent?: string;
   registrationComplete?: string;
   registrationSend?: string;
+  registrationSent?: string;
   registrationVerificationRequired?: string;
   registrationVerify?: string;
   samlv2Logout?: string;
