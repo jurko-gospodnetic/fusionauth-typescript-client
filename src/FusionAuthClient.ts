@@ -7227,6 +7227,7 @@ export interface ReactorStatus {
   advancedIdentityProviders?: ReactorFeatureStatus;
   advancedMultiFactorAuthentication?: ReactorFeatureStatus;
   advancedRegistrationForms?: ReactorFeatureStatus;
+  applicationThemes?: ReactorFeatureStatus;
   breachedPasswordDetection?: ReactorFeatureStatus;
   connectors?: ReactorFeatureStatus;
   entityManagement?: ReactorFeatureStatus;
