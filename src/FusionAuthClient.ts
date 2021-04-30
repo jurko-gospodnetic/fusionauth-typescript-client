@@ -8547,7 +8547,8 @@ export interface UserSearchCriteria extends BaseElasticSearchCriteria {
  */
 export enum UserState {
   Authenticated = "Authenticated",
-  AuthenticatedNotRegistered = "AuthenticatedNotRegistered"
+  AuthenticatedNotRegistered = "AuthenticatedNotRegistered",
+  AuthenticatedNotVerified = "AuthenticatedNotVerified"
 }
 
 /**
