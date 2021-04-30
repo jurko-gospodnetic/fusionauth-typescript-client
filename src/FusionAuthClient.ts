@@ -6595,6 +6595,7 @@ export interface LoginConfiguration {
   allowTokenRefresh?: boolean;
   generateRefreshTokens?: boolean;
   requireAuthentication?: boolean;
+  unverifiedEmailBehavior?: UnverifiedBehavior;
 }
 
 export enum LoginIdType {
@@ -7556,6 +7557,7 @@ export interface SecureIdentity {
   passwordChangeRequired?: boolean;
   passwordLastUpdateInstant?: number;
   salt?: string;
+  uniqueUsername?: string;
   username?: string;
   usernameStatus?: ContentStatus;
   verified?: boolean;
@@ -7748,6 +7750,7 @@ export interface TenantFormConfiguration {
  */
 export interface TenantLoginConfiguration {
   requireAuthentication?: boolean;
+  unverifiedEmailBehavior?: UnverifiedBehavior;
 }
 
 /**
@@ -8033,6 +8036,14 @@ export interface UIConfiguration {
 export interface UniqueUsernameConfiguration extends Enableable {
   numberOfDigits?: number;
   separator?: string;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export enum UnverifiedBehavior {
+  Allow = "Allow",
+  Gated = "Gated"
 }
 
 /**
