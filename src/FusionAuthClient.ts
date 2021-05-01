@@ -3377,6 +3377,18 @@ export class FusionAuthClient {
   }
 
   /**
+   * Retrieves the FusionAuth version string.
+   *
+   * @returns {Promise<ClientResponse<VersionResponse>>}
+   */
+  retrieveVersion(): Promise<ClientResponse<VersionResponse>> {
+    return this.start<VersionResponse, Errors>()
+        .withUri('/api/system/version')
+        .withMethod("GET")
+        .go();
+  }
+
+  /**
    * Retrieves the webhook for the given Id. If you pass in null for the id, this will return all the webhooks.
    *
    * @param {UUID} webhookId (Optional) The Id of the webhook.
@@ -4670,6 +4682,14 @@ export interface ApplicationRole {
   isSuperRole?: boolean;
   lastUpdateInstant?: number;
   name?: string;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface ApplicationUnverifiedConfiguration {
+  registration?: UnverifiedBehavior;
+  whenGated?: UnverifiedGatedOptions;
 }
 
 /**
@@ -6617,7 +6637,7 @@ export interface LoginConfiguration {
   allowTokenRefresh?: boolean;
   generateRefreshTokens?: boolean;
   requireAuthentication?: boolean;
-  unverifiedEmailBehavior?: UnverifiedBehavior;
+  unverified?: ApplicationUnverifiedConfiguration;
 }
 
 export enum LoginIdType {
@@ -7773,7 +7793,7 @@ export interface TenantFormConfiguration {
  */
 export interface TenantLoginConfiguration {
   requireAuthentication?: boolean;
-  unverifiedEmailBehavior?: UnverifiedBehavior;
+  unverified?: TenantUnverifiedConfiguration;
 }
 
 /**
@@ -7799,6 +7819,14 @@ export interface TenantRequest {
 export interface TenantResponse {
   tenant?: Tenant;
   tenants?: Array<Tenant>;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface TenantUnverifiedConfiguration {
+  email?: UnverifiedBehavior;
+  whenGated?: UnverifiedGatedOptions;
 }
 
 /**
@@ -8067,6 +8095,14 @@ export interface UniqueUsernameConfiguration extends Enableable {
 export enum UnverifiedBehavior {
   Allow = "Allow",
   Gated = "Gated"
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface UnverifiedGatedOptions extends Enableable {
+  allowEmailChange?: boolean;
+  verificationStrategy?: VerificationStrategy;
 }
 
 /**
@@ -8579,6 +8615,14 @@ export interface ValidateResponse {
 /**
  * @author Daniel DeGroff
  */
+export enum VerificationStrategy {
+  ClickableLink = "ClickableLink",
+  FormField = "FormField"
+}
+
+/**
+ * @author Daniel DeGroff
+ */
 export interface VerifyEmailRequest {
   oneTimeCode?: string;
   verificationId?: string;
@@ -8597,6 +8641,13 @@ export interface VerifyEmailResponse {
  */
 export interface VerifyRegistrationResponse {
   verificationId?: string;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface VersionResponse {
+  version?: string;
 }
 
 /**
