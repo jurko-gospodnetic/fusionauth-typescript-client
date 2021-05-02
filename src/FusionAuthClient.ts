@@ -8568,6 +8568,7 @@ export interface UserRequest {
 export interface UserResponse {
   token?: string;
   user?: User;
+  verificationId?: string;
 }
 
 /**
