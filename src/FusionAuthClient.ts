@@ -5694,6 +5694,7 @@ export interface ExternalIdentifierConfiguration {
   passwordlessLoginTimeToLiveInSeconds?: number;
   registrationVerificationIdGenerator?: SecureGeneratorConfiguration;
   registrationVerificationIdTimeToLiveInSeconds?: number;
+  registrationVerificationOneTimeCodeGenerator?: SecureGeneratorConfiguration;
   samlv2AuthNRequestIdTimeToLiveInSeconds?: number;
   setupPasswordIdGenerator?: SecureGeneratorConfiguration;
   setupPasswordIdTimeToLiveInSeconds?: number;
