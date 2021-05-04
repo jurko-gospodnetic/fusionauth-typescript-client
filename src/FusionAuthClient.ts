@@ -4398,12 +4398,33 @@ export class FusionAuthClient {
    *
    * @param {string} verificationId The registration verification Id sent to the user.
    * @returns {Promise<ClientResponse<void>>}
+   *
+   * @deprecated This method has been renamed to verifyUserRegistration and changed to take a JSON request body, use that method instead.
    */
   verifyRegistration(verificationId: string): Promise<ClientResponse<void>> {
     return this.startAnonymous<void, Errors>()
         .withHeader('Content-Type', 'text/plain')
         .withUri('/api/user/verify-registration')
         .withUriSegment(verificationId)
+        .withMethod("POST")
+        .go();
+  }
+
+  /**
+   * Confirms a user's registration. 
+   * 
+   * The request body will contain the verificationId. You may also be required to send a one-time use code based upon your configuration. When 
+   * the application is configured to gate a user until their registration is verified, this procedures requires two values instead of one. 
+   * The verificationId is a high entropy value and the one-time use code is a low entropy value that is easily entered in a user interactive form. The 
+   * two values together are able to confirm a user's registration and mark the user's registration as verified.
+   *
+   * @param {VerifyRegistrationRequest} request The request that contains the verificationId and optional one-time use code paired with the verificationId.
+   * @returns {Promise<ClientResponse<void>>}
+   */
+  verifyUserRegistration(request: VerifyRegistrationRequest): Promise<ClientResponse<void>> {
+    return this.startAnonymous<void, Errors>()
+        .withUri('/api/user/verify-registration')
+        .withJSONBody(request)
         .withMethod("POST")
         .go();
   }
@@ -8643,6 +8664,14 @@ export interface VerifyEmailRequest {
  * @author Daniel DeGroff
  */
 export interface VerifyEmailResponse {
+  oneTimeCode?: string;
+  verificationId?: string;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface VerifyRegistrationRequest {
   oneTimeCode?: string;
   verificationId?: string;
 }
