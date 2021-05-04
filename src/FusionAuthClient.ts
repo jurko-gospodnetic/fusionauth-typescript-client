@@ -4603,7 +4603,9 @@ export interface Application {
   state?: ObjectState;
   tenantId?: UUID;
   themeId?: UUID;
+  unverified?: RegistrationUnverifiedOptions;
   verificationEmailTemplateId?: UUID;
+  verificationStrategy?: VerificationStrategy;
   verifyRegistration?: boolean;
 }
 
@@ -4689,7 +4691,8 @@ export interface ApplicationRole {
  */
 export interface ApplicationUnverifiedConfiguration {
   registration?: UnverifiedBehavior;
-  whenGated?: UnverifiedGatedOptions;
+  verificationStrategy?: VerificationStrategy;
+  whenGated?: RegistrationUnverifiedOptions;
 }
 
 /**
@@ -5211,8 +5214,10 @@ export interface EmailConfiguration {
   properties?: string;
   security?: EmailSecurityType;
   setPasswordEmailTemplateId?: UUID;
+  unverified?: EmailUnverifiedOptions;
   username?: string;
   verificationEmailTemplateId?: UUID;
+  verificationStrategy?: VerificationStrategy;
   verifyEmail?: boolean;
   verifyEmailWhenChanged?: boolean;
 }
@@ -5272,6 +5277,14 @@ export interface EmailTemplateRequest {
 export interface EmailTemplateResponse {
   emailTemplate?: EmailTemplate;
   emailTemplates?: Array<EmailTemplate>;
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface EmailUnverifiedOptions {
+  allowEmailChangeWhenGated?: boolean;
+  behavior?: UnverifiedBehavior;
 }
 
 /**
@@ -6637,7 +6650,6 @@ export interface LoginConfiguration {
   allowTokenRefresh?: boolean;
   generateRefreshTokens?: boolean;
   requireAuthentication?: boolean;
-  unverified?: ApplicationUnverifiedConfiguration;
 }
 
 export enum LoginIdType {
@@ -7270,7 +7282,7 @@ export interface ReactorResponse {
 export interface ReactorStatus {
   advancedIdentityProviders?: ReactorFeatureStatus;
   advancedMultiFactorAuthentication?: ReactorFeatureStatus;
-  advancedRegistrationForms?: ReactorFeatureStatus;
+  advancedRegistration?: ReactorFeatureStatus;
   applicationThemes?: ReactorFeatureStatus;
   breachedPasswordDetection?: ReactorFeatureStatus;
   connectors?: ReactorFeatureStatus;
@@ -7413,6 +7425,13 @@ export interface RegistrationResponse {
 export enum RegistrationType {
   basic = "basic",
   advanced = "advanced"
+}
+
+/**
+ * @author Daniel DeGroff
+ */
+export interface RegistrationUnverifiedOptions {
+  behavior?: UnverifiedBehavior;
 }
 
 /**
@@ -7793,7 +7812,6 @@ export interface TenantFormConfiguration {
  */
 export interface TenantLoginConfiguration {
   requireAuthentication?: boolean;
-  unverified?: TenantUnverifiedConfiguration;
 }
 
 /**
@@ -7826,7 +7844,7 @@ export interface TenantResponse {
  */
 export interface TenantUnverifiedConfiguration {
   email?: UnverifiedBehavior;
-  whenGated?: UnverifiedGatedOptions;
+  whenGated?: RegistrationUnverifiedOptions;
 }
 
 /**
@@ -8095,14 +8113,6 @@ export interface UniqueUsernameConfiguration extends Enableable {
 export enum UnverifiedBehavior {
   Allow = "Allow",
   Gated = "Gated"
-}
-
-/**
- * @author Daniel DeGroff
- */
-export interface UnverifiedGatedOptions extends Enableable {
-  allowEmailChange?: boolean;
-  verificationStrategy?: VerificationStrategy;
 }
 
 /**
