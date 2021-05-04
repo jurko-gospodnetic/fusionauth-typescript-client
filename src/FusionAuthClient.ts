@@ -1530,10 +1530,10 @@ export class FusionAuthClient {
    * @param {UUID} applicationId The Id of the application that they logged into.
    * @param {string} callerIPAddress (Optional) The IP address of the end-user that is logging in. If a null value is provided
    *    the IP address will be that of the client or last proxy that sent the request.
-   * @returns {Promise<ClientResponse<void>>}
+   * @returns {Promise<ClientResponse<LoginResponse>>}
    */
-  loginPing(userId: UUID, applicationId: UUID, callerIPAddress: string): Promise<ClientResponse<void>> {
-    return this.start<void, Errors>()
+  loginPing(userId: UUID, applicationId: UUID, callerIPAddress: string): Promise<ClientResponse<LoginResponse>> {
+    return this.start<LoginResponse, Errors>()
         .withUri('/api/login')
         .withUriSegment(userId)
         .withUriSegment(applicationId)
@@ -6764,14 +6764,15 @@ export interface LoginResponse {
   actions?: Array<LoginPreventedResponse>;
   changePasswordId?: string;
   changePasswordReason?: ChangePasswordReason;
+  emailVerificationId?: string;
   methods?: Array<TwoFactorMethod>;
   refreshToken?: string;
+  registrationVerificationId?: string;
   state?: Record<string, any>;
   token?: string;
   twoFactorId?: string;
   twoFactorTrustId?: string;
   user?: User;
-  verificationId?: string;
 }
 
 /**
@@ -7439,6 +7440,7 @@ export interface RegistrationRequest {
 export interface RegistrationResponse {
   refreshToken?: string;
   registration?: UserRegistration;
+  registrationVerificationId?: string;
   token?: string;
   user?: User;
 }
@@ -8597,9 +8599,10 @@ export interface UserRequest {
  * @author Brian Pontarelli
  */
 export interface UserResponse {
+  emailVerificationId?: string;
+  registrationVerificationIds?: Record<UUID, string>;
   token?: string;
   user?: User;
-  verificationId?: string;
 }
 
 /**
@@ -8616,7 +8619,8 @@ export interface UserSearchCriteria extends BaseElasticSearchCriteria {
 export enum UserState {
   Authenticated = "Authenticated",
   AuthenticatedNotRegistered = "AuthenticatedNotRegistered",
-  AuthenticatedNotVerified = "AuthenticatedNotVerified"
+  AuthenticatedNotVerified = "AuthenticatedNotVerified",
+  AuthenticatedRegistrationNotVerified = "AuthenticatedRegistrationNotVerified"
 }
 
 /**
@@ -8680,6 +8684,7 @@ export interface VerifyRegistrationRequest {
  * @author Daniel DeGroff
  */
 export interface VerifyRegistrationResponse {
+  oneTimeCode?: string;
   verificationId?: string;
 }
 
