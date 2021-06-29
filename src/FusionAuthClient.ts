@@ -5298,6 +5298,7 @@ export enum DeviceType {
  */
 export interface DisplayableRawLogin extends RawLogin {
   applicationName?: string;
+  location?: Location;
   loginId?: string;
 }
 
@@ -6370,6 +6371,7 @@ export interface IdentityProviderLoginRequest extends BaseLoginRequest {
   data?: Record<string, string>;
   encodedJWT?: string;
   identityProviderId?: UUID;
+  loginOnlyWhenLinked?: boolean;
 }
 
 /**
@@ -6868,6 +6870,20 @@ export interface LocalizedIntegers extends Record<string, number> {
  * @author Brian Pontarelli
  */
 export interface LocalizedStrings extends Record<string, string> {
+}
+
+/**
+ * Location information. Useful for IP addresses and other displayable data objects.
+ *
+ * @author Brian Pontarelli
+ */
+export interface Location {
+  city?: string;
+  country?: string;
+  latitude?: number;
+  longitude?: number;
+  region?: string;
+  zipcode?: string;
 }
 
 /**
