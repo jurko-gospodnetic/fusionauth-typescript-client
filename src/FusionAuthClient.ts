@@ -7606,6 +7606,7 @@ export interface ReactorStatus {
   breachedPasswordDetection?: ReactorFeatureStatus;
   connectors?: ReactorFeatureStatus;
   entityManagement?: ReactorFeatureStatus;
+  ipLocation?: ReactorFeatureStatus;
   licensed?: boolean;
 }
 
