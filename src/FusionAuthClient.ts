@@ -4610,6 +4610,14 @@ export interface ActionResponse {
 }
 
 /**
+ * @author Brett Guy
+ */
+export enum AddressRangeMode {
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK"
+}
+
+/**
  * Available JSON Web Algorithms (JWA) as described in RFC 7518 available for this JWT implementation.
  *
  * @author Daniel DeGroff
@@ -6512,6 +6520,57 @@ export interface IntervalUser {
  * @author Daniel DeGroff
  */
 export interface IntrospectResponse extends Record<string, any> {
+}
+
+/**
+ * @author Brett Guy
+ */
+export interface IpAddressRange {
+  endIpAddress?: string;
+  id?: UUID;
+  insertInstant?: number;
+  lastUpdateInstant?: number;
+  mode?: AddressRangeMode;
+  startIpAddress?: string;
+}
+
+/**
+ * @author Brett Guy
+ */
+export interface IPAddressRangeNode {
+  endIpAddress?: number;
+  left?: IPAddressRangeNode;
+  right?: IPAddressRangeNode;
+  startIpAddress?: number;
+}
+
+/**
+ * @author Brett Guy
+ */
+export interface IPAddressRangeRequest {
+  ipAddressRange?: IpAddressRange;
+}
+
+/**
+ * @author Brett Guy
+ */
+export interface IPAddressRangeResponse {
+  ipAddressRange?: IpAddressRange;
+  ipAddressRanges?: Array<IpAddressRange>;
+}
+
+/**
+ * @author Brett Guy
+ */
+export interface IPAddressRangeRule {
+}
+
+/**
+ * An implementation of an Interval Tree used to store IP address ranges.
+ *
+ * https://en.wikipedia.org/wiki/Interval_tree
+ */
+export interface IPAddressRangeTree {
 }
 
 /**
