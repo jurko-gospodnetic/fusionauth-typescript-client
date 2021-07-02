@@ -6371,6 +6371,7 @@ export interface IdentityProviderLoginRequest extends BaseLoginRequest {
   data?: Record<string, string>;
   encodedJWT?: string;
   identityProviderId?: UUID;
+  noLink?: boolean;
 }
 
 /**
