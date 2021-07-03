@@ -6523,6 +6523,8 @@ export interface IntrospectResponse extends Record<string, any> {
 }
 
 /**
+ * TODO : ip-allow-block : Fix names so they are all the same. I prefer `IP`.
+ *
  * @author Brett Guy
  */
 export interface IpAddressRange {
@@ -7626,6 +7628,7 @@ export enum ReactorFeatureStatus {
   ACTIVE = "ACTIVE",
   DISCONNECTED = "DISCONNECTED",
   PENDING = "PENDING",
+  DISABLED = "DISABLED",
   UNKNOWN = "UNKNOWN"
 }
 
