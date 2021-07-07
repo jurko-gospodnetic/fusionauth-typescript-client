@@ -62,6 +62,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   actionUser(request: ActionRequest): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.actionUser()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withJSONBody(request)
@@ -76,6 +77,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   activateReactor(request: ReactorRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.activateReactor()');
     return this.start<void, Errors>()
         .withUri('/api/reactor')
         .withJSONBody(request)
@@ -91,6 +93,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FamilyResponse>>}
    */
   addUserToFamily(familyId: UUID, request: FamilyRequest): Promise<ClientResponse<FamilyResponse>> {
+    console.log('FusionAuthClient.addUserToFamily()');
     return this.start<FamilyResponse, Errors>()
         .withUri('/api/user/family')
         .withUriSegment(familyId)
@@ -107,6 +110,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   cancelAction(actionId: UUID, request: ActionRequest): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.cancelAction()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withUriSegment(actionId)
@@ -124,6 +128,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ChangePasswordResponse>>}
    */
   changePassword(changePasswordId: string, request: ChangePasswordRequest): Promise<ClientResponse<ChangePasswordResponse>> {
+    console.log('FusionAuthClient.changePassword()');
     return this.startAnonymous<ChangePasswordResponse, Errors>()
         .withUri('/api/user/change-password')
         .withUriSegment(changePasswordId)
@@ -141,6 +146,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   changePasswordByIdentity(request: ChangePasswordRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.changePasswordByIdentity()');
     return this.start<void, Errors>()
         .withUri('/api/user/change-password')
         .withJSONBody(request)
@@ -155,6 +161,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   commentOnUser(request: UserCommentRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.commentOnUser()');
     return this.start<void, Errors>()
         .withUri('/api/user/comment')
         .withJSONBody(request)
@@ -174,6 +181,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<APIKeyResponse>>}
    */
   createAPIKey(keyId: UUID, request: APIKeyRequest): Promise<ClientResponse<APIKeyResponse>> {
+    console.log('FusionAuthClient.createAPIKey()');
     return this.start<APIKeyResponse, Errors>()
         .withUri('/api/api-key')
         .withUriSegment(keyId)
@@ -190,6 +198,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   createApplication(applicationId: UUID, request: ApplicationRequest): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.createApplication()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -208,6 +217,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   createApplicationRole(applicationId: UUID, roleId: UUID, request: ApplicationRequest): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.createApplicationRole()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -227,6 +237,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AuditLogResponse>>}
    */
   createAuditLog(request: AuditLogRequest): Promise<ClientResponse<AuditLogResponse>> {
+    console.log('FusionAuthClient.createAuditLog()');
     return this.start<AuditLogResponse, Errors>()
         .withUri('/api/system/audit-log')
         .withJSONBody(request)
@@ -242,6 +253,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConnectorResponse>>}
    */
   createConnector(connectorId: UUID, request: ConnectorRequest): Promise<ClientResponse<ConnectorResponse>> {
+    console.log('FusionAuthClient.createConnector()');
     return this.start<ConnectorResponse, Errors>()
         .withUri('/api/connector')
         .withUriSegment(connectorId)
@@ -258,6 +270,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConsentResponse>>}
    */
   createConsent(consentId: UUID, request: ConsentRequest): Promise<ClientResponse<ConsentResponse>> {
+    console.log('FusionAuthClient.createConsent()');
     return this.start<ConsentResponse, Errors>()
         .withUri('/api/consent')
         .withUriSegment(consentId)
@@ -274,6 +287,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EmailTemplateResponse>>}
    */
   createEmailTemplate(emailTemplateId: UUID, request: EmailTemplateRequest): Promise<ClientResponse<EmailTemplateResponse>> {
+    console.log('FusionAuthClient.createEmailTemplate()');
     return this.start<EmailTemplateResponse, Errors>()
         .withUri('/api/email/template')
         .withUriSegment(emailTemplateId)
@@ -290,6 +304,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityResponse>>}
    */
   createEntity(entityId: UUID, request: EntityRequest): Promise<ClientResponse<EntityResponse>> {
+    console.log('FusionAuthClient.createEntity()');
     return this.start<EntityResponse, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -306,6 +321,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   createEntityType(entityTypeId: UUID, request: EntityTypeRequest): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.createEntityType()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -324,6 +340,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   createEntityTypePermission(entityTypeId: UUID, permissionId: UUID, request: EntityTypeRequest): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.createEntityTypePermission()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -343,6 +360,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FamilyResponse>>}
    */
   createFamily(familyId: UUID, request: FamilyRequest): Promise<ClientResponse<FamilyResponse>> {
+    console.log('FusionAuthClient.createFamily()');
     return this.start<FamilyResponse, Errors>()
         .withUri('/api/user/family')
         .withUriSegment(familyId)
@@ -359,6 +377,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormResponse>>}
    */
   createForm(formId: UUID, request: FormRequest): Promise<ClientResponse<FormResponse>> {
+    console.log('FusionAuthClient.createForm()');
     return this.start<FormResponse, Errors>()
         .withUri('/api/form')
         .withUriSegment(formId)
@@ -375,6 +394,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormFieldResponse>>}
    */
   createFormField(fieldId: UUID, request: FormFieldRequest): Promise<ClientResponse<FormFieldResponse>> {
+    console.log('FusionAuthClient.createFormField()');
     return this.start<FormFieldResponse, Errors>()
         .withUri('/api/form/field')
         .withUriSegment(fieldId)
@@ -391,6 +411,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<GroupResponse>>}
    */
   createGroup(groupId: UUID, request: GroupRequest): Promise<ClientResponse<GroupResponse>> {
+    console.log('FusionAuthClient.createGroup()');
     return this.start<GroupResponse, Errors>()
         .withUri('/api/group')
         .withUriSegment(groupId)
@@ -406,6 +427,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MemberResponse>>}
    */
   createGroupMembers(request: MemberRequest): Promise<ClientResponse<MemberResponse>> {
+    console.log('FusionAuthClient.createGroupMembers()');
     return this.start<MemberResponse, Errors>()
         .withUri('/api/group/member')
         .withJSONBody(request)
@@ -421,6 +443,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderResponse>>}
    */
   createIdentityProvider(identityProviderId: UUID, request: IdentityProviderRequest): Promise<ClientResponse<IdentityProviderResponse>> {
+    console.log('FusionAuthClient.createIdentityProvider()');
     return this.start<IdentityProviderResponse, Errors>()
         .withUri('/api/identity-provider')
         .withUriSegment(identityProviderId)
@@ -437,6 +460,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LambdaResponse>>}
    */
   createLambda(lambdaId: UUID, request: LambdaRequest): Promise<ClientResponse<LambdaResponse>> {
+    console.log('FusionAuthClient.createLambda()');
     return this.start<LambdaResponse, Errors>()
         .withUri('/api/lambda')
         .withUriSegment(lambdaId)
@@ -453,6 +477,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessageTemplateResponse>>}
    */
   createMessageTemplate(messageTemplateId: UUID, request: MessageTemplateRequest): Promise<ClientResponse<MessageTemplateResponse>> {
+    console.log('FusionAuthClient.createMessageTemplate()');
     return this.start<MessageTemplateResponse, Errors>()
         .withUri('/api/message/template')
         .withUriSegment(messageTemplateId)
@@ -469,6 +494,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessengerResponse>>}
    */
   createMessenger(messengerId: UUID, request: MessengerRequest): Promise<ClientResponse<MessengerResponse>> {
+    console.log('FusionAuthClient.createMessenger()');
     return this.start<MessengerResponse, Errors>()
         .withUri('/api/messenger')
         .withUriSegment(messengerId)
@@ -485,6 +511,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TenantResponse>>}
    */
   createTenant(tenantId: UUID, request: TenantRequest): Promise<ClientResponse<TenantResponse>> {
+    console.log('FusionAuthClient.createTenant()');
     return this.start<TenantResponse, Errors>()
         .withUri('/api/tenant')
         .withUriSegment(tenantId)
@@ -501,6 +528,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ThemeResponse>>}
    */
   createTheme(themeId: UUID, request: ThemeRequest): Promise<ClientResponse<ThemeResponse>> {
+    console.log('FusionAuthClient.createTheme()');
     return this.start<ThemeResponse, Errors>()
         .withUri('/api/theme')
         .withUriSegment(themeId)
@@ -517,6 +545,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   createUser(userId: UUID, request: UserRequest): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.createUser()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -534,6 +563,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   createUserAction(userActionId: UUID, request: UserActionRequest): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.createUserAction()');
     return this.start<UserActionResponse, Errors>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -551,6 +581,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionReasonResponse>>}
    */
   createUserActionReason(userActionReasonId: UUID, request: UserActionReasonRequest): Promise<ClientResponse<UserActionReasonResponse>> {
+    console.log('FusionAuthClient.createUserActionReason()');
     return this.start<UserActionReasonResponse, Errors>()
         .withUri('/api/user-action-reason')
         .withUriSegment(userActionReasonId)
@@ -567,6 +598,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserConsentResponse>>}
    */
   createUserConsent(userConsentId: UUID, request: UserConsentRequest): Promise<ClientResponse<UserConsentResponse>> {
+    console.log('FusionAuthClient.createUserConsent()');
     return this.start<UserConsentResponse, Errors>()
         .withUri('/api/user/consent')
         .withUriSegment(userConsentId)
@@ -582,6 +614,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderLinkResponse>>}
    */
   createUserLink(request: IdentityProviderLinkRequest): Promise<ClientResponse<IdentityProviderLinkResponse>> {
+    console.log('FusionAuthClient.createUserLink()');
     return this.start<IdentityProviderLinkResponse, Errors>()
         .withUri('/api/identity-provider/link')
         .withJSONBody(request)
@@ -597,6 +630,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<WebhookResponse>>}
    */
   createWebhook(webhookId: UUID, request: WebhookRequest): Promise<ClientResponse<WebhookResponse>> {
+    console.log('FusionAuthClient.createWebhook()');
     return this.start<WebhookResponse, Errors>()
         .withUri('/api/webhook')
         .withUriSegment(webhookId)
@@ -612,6 +646,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deactivateApplication(applicationId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deactivateApplication()');
     return this.start<void, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -625,6 +660,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deactivateReactor(): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deactivateReactor()');
     return this.start<void, void>()
         .withUri('/api/reactor')
         .withMethod("DELETE")
@@ -638,6 +674,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deactivateUser(userId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deactivateUser()');
     return this.start<void, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -652,6 +689,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deactivateUserAction(userActionId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deactivateUserAction()');
     return this.start<void, Errors>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -668,6 +706,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to deactivateUsersByIds, use that method instead.
    */
   deactivateUsers(userIds: Array<string>): Promise<ClientResponse<UserDeleteResponse>> {
+    console.log('FusionAuthClient.deactivateUsers()');
     return this.start<UserDeleteResponse, Errors>()
         .withUri('/api/user/bulk')
         .withParameter('userId', userIds)
@@ -684,6 +723,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserDeleteResponse>>}
    */
   deactivateUsersByIds(userIds: Array<string>): Promise<ClientResponse<UserDeleteResponse>> {
+    console.log('FusionAuthClient.deactivateUsersByIds()');
     return this.start<UserDeleteResponse, Errors>()
         .withUri('/api/user/bulk')
         .withParameter('userId', userIds)
@@ -700,6 +740,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteAPIKey(keyId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteAPIKey()');
     return this.start<void, Errors>()
         .withUri('/api/api-key')
         .withUriSegment(keyId)
@@ -717,6 +758,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteApplication(applicationId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteApplication()');
     return this.start<void, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -734,6 +776,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteApplicationRole(applicationId: UUID, roleId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteApplicationRole()');
     return this.start<void, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -750,6 +793,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteConnector(connectorId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteConnector()');
     return this.start<void, Errors>()
         .withUri('/api/connector')
         .withUriSegment(connectorId)
@@ -764,6 +808,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteConsent(consentId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteConsent()');
     return this.start<void, Errors>()
         .withUri('/api/consent')
         .withUriSegment(consentId)
@@ -778,6 +823,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteEmailTemplate(emailTemplateId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteEmailTemplate()');
     return this.start<void, Errors>()
         .withUri('/api/email/template')
         .withUriSegment(emailTemplateId)
@@ -792,6 +838,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteEntity(entityId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteEntity()');
     return this.start<void, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -808,6 +855,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteEntityGrant(entityId: UUID, recipientEntityId: UUID, userId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteEntityGrant()');
     return this.start<void, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -825,6 +873,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteEntityType(entityTypeId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteEntityType()');
     return this.start<void, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -841,6 +890,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteEntityTypePermission(entityTypeId: UUID, permissionId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteEntityTypePermission()');
     return this.start<void, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -857,6 +907,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteForm(formId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteForm()');
     return this.start<void, Errors>()
         .withUri('/api/form')
         .withUriSegment(formId)
@@ -871,6 +922,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteFormField(fieldId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteFormField()');
     return this.start<void, Errors>()
         .withUri('/api/form/field')
         .withUriSegment(fieldId)
@@ -885,6 +937,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteGroup(groupId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteGroup()');
     return this.start<void, Errors>()
         .withUri('/api/group')
         .withUriSegment(groupId)
@@ -899,6 +952,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteGroupMembers(request: MemberDeleteRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteGroupMembers()');
     return this.start<void, Errors>()
         .withUri('/api/group/member')
         .withJSONBody(request)
@@ -913,6 +967,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteIdentityProvider(identityProviderId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteIdentityProvider()');
     return this.start<void, Errors>()
         .withUri('/api/identity-provider')
         .withUriSegment(identityProviderId)
@@ -927,6 +982,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteKey(keyId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteKey()');
     return this.start<void, Errors>()
         .withUri('/api/key')
         .withUriSegment(keyId)
@@ -941,6 +997,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteLambda(lambdaId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteLambda()');
     return this.start<void, Errors>()
         .withUri('/api/lambda')
         .withUriSegment(lambdaId)
@@ -955,6 +1012,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteMessageTemplate(messageTemplateId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteMessageTemplate()');
     return this.start<void, Errors>()
         .withUri('/api/message/template')
         .withUriSegment(messageTemplateId)
@@ -969,6 +1027,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteMessenger(messengerId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteMessenger()');
     return this.start<void, Errors>()
         .withUri('/api/messenger')
         .withUriSegment(messengerId)
@@ -984,6 +1043,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteRegistration(userId: UUID, applicationId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteRegistration()');
     return this.start<void, Errors>()
         .withUri('/api/user/registration')
         .withUriSegment(userId)
@@ -999,6 +1059,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteTenant(tenantId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteTenant()');
     return this.start<void, Errors>()
         .withUri('/api/tenant')
         .withUriSegment(tenantId)
@@ -1014,6 +1075,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteTenantAsync(tenantId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteTenantAsync()');
     return this.start<void, Errors>()
         .withUri('/api/tenant')
         .withUriSegment(tenantId)
@@ -1029,6 +1091,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteTheme(themeId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteTheme()');
     return this.start<void, Errors>()
         .withUri('/api/theme')
         .withUriSegment(themeId)
@@ -1044,6 +1107,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteUser(userId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteUser()');
     return this.start<void, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -1060,6 +1124,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteUserAction(userActionId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteUserAction()');
     return this.start<void, Errors>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -1075,6 +1140,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteUserActionReason(userActionReasonId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteUserActionReason()');
     return this.start<void, Errors>()
         .withUri('/api/user-action-reason')
         .withUriSegment(userActionReasonId)
@@ -1091,6 +1157,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderLinkResponse>>}
    */
   deleteUserLink(identityProviderId: UUID, identityProviderUserId: string, userId: UUID): Promise<ClientResponse<IdentityProviderLinkResponse>> {
+    console.log('FusionAuthClient.deleteUserLink()');
     return this.start<IdentityProviderLinkResponse, Errors>()
         .withUri('/api/identity-provider/link')
         .withParameter('identityProviderId', identityProviderId)
@@ -1113,6 +1180,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to deleteUsersByQuery, use that method instead.
    */
   deleteUsers(request: UserDeleteRequest): Promise<ClientResponse<UserDeleteResponse>> {
+    console.log('FusionAuthClient.deleteUsers()');
     return this.start<UserDeleteResponse, Errors>()
         .withUri('/api/user/bulk')
         .withJSONBody(request)
@@ -1131,6 +1199,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserDeleteResponse>>}
    */
   deleteUsersByQuery(request: UserDeleteRequest): Promise<ClientResponse<UserDeleteResponse>> {
+    console.log('FusionAuthClient.deleteUsersByQuery()');
     return this.start<UserDeleteResponse, Errors>()
         .withUri('/api/user/bulk')
         .withJSONBody(request)
@@ -1145,6 +1214,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   deleteWebhook(webhookId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.deleteWebhook()');
     return this.start<void, Errors>()
         .withUri('/api/webhook')
         .withUriSegment(webhookId)
@@ -1161,6 +1231,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   disableTwoFactor(userId: UUID, methodId: string, code: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.disableTwoFactor()');
     return this.start<void, Errors>()
         .withUri('/api/user/two-factor')
         .withParameter('userId', userId)
@@ -1178,6 +1249,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TwoFactorResponse>>}
    */
   enableTwoFactor(userId: UUID, request: TwoFactorRequest): Promise<ClientResponse<TwoFactorResponse>> {
+    console.log('FusionAuthClient.enableTwoFactor()');
     return this.start<TwoFactorResponse, Errors>()
         .withUri('/api/user/two-factor')
         .withUriSegment(userId)
@@ -1197,6 +1269,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AccessToken>>}
    */
   exchangeOAuthCodeForAccessToken(code: string, client_id: string, client_secret: string, redirect_uri: string): Promise<ClientResponse<AccessToken>> {
+    console.log('FusionAuthClient.exchangeOAuthCodeForAccessToken()');
     let body = new URLSearchParams();
 
     body.append('code', code);
@@ -1223,6 +1296,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AccessToken>>}
    */
   exchangeOAuthCodeForAccessTokenUsingPKCE(code: string, client_id: string, client_secret: string, redirect_uri: string, code_verifier: string): Promise<ClientResponse<AccessToken>> {
+    console.log('FusionAuthClient.exchangeOAuthCodeForAccessTokenUsingPKCE()');
     let body = new URLSearchParams();
 
     body.append('code', code);
@@ -1250,6 +1324,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AccessToken>>}
    */
   exchangeRefreshTokenForAccessToken(refresh_token: string, client_id: string, client_secret: string, scope: string, user_code: string): Promise<ClientResponse<AccessToken>> {
+    console.log('FusionAuthClient.exchangeRefreshTokenForAccessToken()');
     let body = new URLSearchParams();
 
     body.append('refresh_token', refresh_token);
@@ -1272,6 +1347,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<JWTRefreshResponse>>}
    */
   exchangeRefreshTokenForJWT(request: RefreshRequest): Promise<ClientResponse<JWTRefreshResponse>> {
+    console.log('FusionAuthClient.exchangeRefreshTokenForJWT()');
     return this.startAnonymous<JWTRefreshResponse, Errors>()
         .withUri('/api/jwt/refresh')
         .withJSONBody(request)
@@ -1292,6 +1368,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AccessToken>>}
    */
   exchangeUserCredentialsForAccessToken(username: string, password: string, client_id: string, client_secret: string, scope: string, user_code: string): Promise<ClientResponse<AccessToken>> {
+    console.log('FusionAuthClient.exchangeUserCredentialsForAccessToken()');
     let body = new URLSearchParams();
 
     body.append('username', username);
@@ -1315,6 +1392,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ForgotPasswordResponse>>}
    */
   forgotPassword(request: ForgotPasswordRequest): Promise<ClientResponse<ForgotPasswordResponse>> {
+    console.log('FusionAuthClient.forgotPassword()');
     return this.start<ForgotPasswordResponse, Errors>()
         .withUri('/api/user/forgot-password')
         .withJSONBody(request)
@@ -1330,6 +1408,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<VerifyEmailResponse>>}
    */
   generateEmailVerificationId(email: string): Promise<ClientResponse<VerifyEmailResponse>> {
+    console.log('FusionAuthClient.generateEmailVerificationId()');
     return this.start<VerifyEmailResponse, void>()
         .withUri('/api/user/verify-email')
         .withParameter('email', email)
@@ -1346,6 +1425,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<KeyResponse>>}
    */
   generateKey(keyId: UUID, request: KeyRequest): Promise<ClientResponse<KeyResponse>> {
+    console.log('FusionAuthClient.generateKey()');
     return this.start<KeyResponse, Errors>()
         .withUri('/api/key/generate')
         .withUriSegment(keyId)
@@ -1363,6 +1443,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<VerifyRegistrationResponse>>}
    */
   generateRegistrationVerificationId(email: string, applicationId: UUID): Promise<ClientResponse<VerifyRegistrationResponse>> {
+    console.log('FusionAuthClient.generateRegistrationVerificationId()');
     return this.start<VerifyRegistrationResponse, void>()
         .withUri('/api/user/verify-registration')
         .withParameter('email', email)
@@ -1379,6 +1460,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TwoFactorRecoveryCodeResponse>>}
    */
   generateTwoFactorRecoveryCodes(userId: UUID): Promise<ClientResponse<TwoFactorRecoveryCodeResponse>> {
+    console.log('FusionAuthClient.generateTwoFactorRecoveryCodes()');
     return this.start<TwoFactorRecoveryCodeResponse, Errors>()
         .withHeader('Content-Type', 'text/plain')
         .withUri('/api/user/two-factor/recovery-code')
@@ -1395,6 +1477,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SecretResponse>>}
    */
   generateTwoFactorSecret(): Promise<ClientResponse<SecretResponse>> {
+    console.log('FusionAuthClient.generateTwoFactorSecret()');
     return this.start<SecretResponse, void>()
         .withUri('/api/two-factor/secret')
         .withMethod("GET")
@@ -1410,6 +1493,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SecretResponse>>}
    */
   generateTwoFactorSecretUsingJWT(encodedJWT: string): Promise<ClientResponse<SecretResponse>> {
+    console.log('FusionAuthClient.generateTwoFactorSecretUsingJWT()');
     return this.startAnonymous<SecretResponse, void>()
         .withUri('/api/two-factor/secret')
         .withAuthorization('Bearer ' + encodedJWT)
@@ -1426,6 +1510,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginResponse>>}
    */
   identityProviderLogin(request: IdentityProviderLoginRequest): Promise<ClientResponse<LoginResponse>> {
+    console.log('FusionAuthClient.identityProviderLogin()');
     return this.startAnonymous<LoginResponse, Errors>()
         .withUri('/api/identity-provider/login')
         .withJSONBody(request)
@@ -1441,6 +1526,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<KeyResponse>>}
    */
   importKey(keyId: UUID, request: KeyRequest): Promise<ClientResponse<KeyResponse>> {
+    console.log('FusionAuthClient.importKey()');
     return this.start<KeyResponse, Errors>()
         .withUri('/api/key/import')
         .withUriSegment(keyId)
@@ -1463,6 +1549,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   importRefreshTokens(request: RefreshTokenImportRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.importRefreshTokens()');
     return this.start<void, Errors>()
         .withUri('/api/user/refresh-token/import')
         .withJSONBody(request)
@@ -1484,6 +1571,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   importUsers(request: ImportRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.importUsers()');
     return this.start<void, Errors>()
         .withUri('/api/user/import')
         .withJSONBody(request)
@@ -1499,6 +1587,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IntrospectResponse>>}
    */
   introspectAccessToken(client_id: string, token: string): Promise<ClientResponse<IntrospectResponse>> {
+    console.log('FusionAuthClient.introspectAccessToken()');
     let body = new URLSearchParams();
 
     body.append('client_id', client_id);
@@ -1525,6 +1614,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IssueResponse>>}
    */
   issueJWT(applicationId: UUID, encodedJWT: string, refreshToken: string): Promise<ClientResponse<IssueResponse>> {
+    console.log('FusionAuthClient.issueJWT()');
     return this.startAnonymous<IssueResponse, Errors>()
         .withUri('/api/jwt/issue')
         .withAuthorization('Bearer ' + encodedJWT)
@@ -1543,6 +1633,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginResponse>>}
    */
   login(request: LoginRequest): Promise<ClientResponse<LoginResponse>> {
+    console.log('FusionAuthClient.login()');
     return this.start<LoginResponse, Errors>()
         .withUri('/api/login')
         .withJSONBody(request)
@@ -1563,6 +1654,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginResponse>>}
    */
   loginPing(userId: UUID, applicationId: UUID, callerIPAddress: string): Promise<ClientResponse<LoginResponse>> {
+    console.log('FusionAuthClient.loginPing()');
     return this.start<LoginResponse, Errors>()
         .withUri('/api/login')
         .withUriSegment(userId)
@@ -1584,6 +1676,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   logout(global: boolean, refreshToken: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.logout()');
     return this.startAnonymous<void, void>()
         .withHeader('Content-Type', 'text/plain')
         .withUri('/api/logout')
@@ -1601,6 +1694,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LookupResponse>>}
    */
   lookupIdentityProvider(domain: string): Promise<ClientResponse<LookupResponse>> {
+    console.log('FusionAuthClient.lookupIdentityProvider()');
     return this.start<LookupResponse, void>()
         .withUri('/api/identity-provider/lookup')
         .withParameter('domain', domain)
@@ -1617,6 +1711,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   modifyAction(actionId: UUID, request: ActionRequest): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.modifyAction()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withUriSegment(actionId)
@@ -1632,6 +1727,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginResponse>>}
    */
   passwordlessLogin(request: PasswordlessLoginRequest): Promise<ClientResponse<LoginResponse>> {
+    console.log('FusionAuthClient.passwordlessLogin()');
     return this.startAnonymous<LoginResponse, Errors>()
         .withUri('/api/passwordless/login')
         .withJSONBody(request)
@@ -1647,6 +1743,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<APIKeyResponse>>}
    */
   patchAPIKey(keyId: UUID, request: APIKeyRequest): Promise<ClientResponse<APIKeyResponse>> {
+    console.log('FusionAuthClient.patchAPIKey()');
     return this.start<APIKeyResponse, Errors>()
         .withUri('/api/api-key')
         .withUriSegment(keyId)
@@ -1663,6 +1760,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   patchApplication(applicationId: UUID, request: ApplicationRequest): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.patchApplication()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -1680,6 +1778,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   patchApplicationRole(applicationId: UUID, roleId: UUID, request: ApplicationRequest): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.patchApplicationRole()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -1698,6 +1797,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConnectorResponse>>}
    */
   patchConnector(connectorId: UUID, request: ConnectorRequest): Promise<ClientResponse<ConnectorResponse>> {
+    console.log('FusionAuthClient.patchConnector()');
     return this.start<ConnectorResponse, Errors>()
         .withUri('/api/connector')
         .withUriSegment(connectorId)
@@ -1714,6 +1814,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConsentResponse>>}
    */
   patchConsent(consentId: UUID, request: ConsentRequest): Promise<ClientResponse<ConsentResponse>> {
+    console.log('FusionAuthClient.patchConsent()');
     return this.start<ConsentResponse, Errors>()
         .withUri('/api/consent')
         .withUriSegment(consentId)
@@ -1730,6 +1831,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EmailTemplateResponse>>}
    */
   patchEmailTemplate(emailTemplateId: UUID, request: EmailTemplateRequest): Promise<ClientResponse<EmailTemplateResponse>> {
+    console.log('FusionAuthClient.patchEmailTemplate()');
     return this.start<EmailTemplateResponse, Errors>()
         .withUri('/api/email/template')
         .withUriSegment(emailTemplateId)
@@ -1746,6 +1848,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   patchEntityType(entityTypeId: UUID, request: EntityTypeRequest): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.patchEntityType()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -1762,6 +1865,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<GroupResponse>>}
    */
   patchGroup(groupId: UUID, request: GroupRequest): Promise<ClientResponse<GroupResponse>> {
+    console.log('FusionAuthClient.patchGroup()');
     return this.start<GroupResponse, Errors>()
         .withUri('/api/group')
         .withUriSegment(groupId)
@@ -1778,6 +1882,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderResponse>>}
    */
   patchIdentityProvider(identityProviderId: UUID, request: IdentityProviderRequest): Promise<ClientResponse<IdentityProviderResponse>> {
+    console.log('FusionAuthClient.patchIdentityProvider()');
     return this.start<IdentityProviderResponse, Errors>()
         .withUri('/api/identity-provider')
         .withUriSegment(identityProviderId)
@@ -1793,6 +1898,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IntegrationResponse>>}
    */
   patchIntegrations(request: IntegrationRequest): Promise<ClientResponse<IntegrationResponse>> {
+    console.log('FusionAuthClient.patchIntegrations()');
     return this.start<IntegrationResponse, Errors>()
         .withUri('/api/integration')
         .withJSONBody(request)
@@ -1808,6 +1914,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LambdaResponse>>}
    */
   patchLambda(lambdaId: UUID, request: LambdaRequest): Promise<ClientResponse<LambdaResponse>> {
+    console.log('FusionAuthClient.patchLambda()');
     return this.start<LambdaResponse, Errors>()
         .withUri('/api/lambda')
         .withUriSegment(lambdaId)
@@ -1824,6 +1931,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessageTemplateResponse>>}
    */
   patchMessageTemplate(messageTemplateId: UUID, request: MessageTemplateRequest): Promise<ClientResponse<MessageTemplateResponse>> {
+    console.log('FusionAuthClient.patchMessageTemplate()');
     return this.start<MessageTemplateResponse, Errors>()
         .withUri('/api/message/template')
         .withUriSegment(messageTemplateId)
@@ -1840,6 +1948,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessengerResponse>>}
    */
   patchMessenger(messengerId: UUID, request: MessengerRequest): Promise<ClientResponse<MessengerResponse>> {
+    console.log('FusionAuthClient.patchMessenger()');
     return this.start<MessengerResponse, Errors>()
         .withUri('/api/messenger')
         .withUriSegment(messengerId)
@@ -1856,6 +1965,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RegistrationResponse>>}
    */
   patchRegistration(userId: UUID, request: RegistrationRequest): Promise<ClientResponse<RegistrationResponse>> {
+    console.log('FusionAuthClient.patchRegistration()');
     return this.start<RegistrationResponse, Errors>()
         .withUri('/api/user/registration')
         .withUriSegment(userId)
@@ -1871,6 +1981,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SystemConfigurationResponse>>}
    */
   patchSystemConfiguration(request: SystemConfigurationRequest): Promise<ClientResponse<SystemConfigurationResponse>> {
+    console.log('FusionAuthClient.patchSystemConfiguration()');
     return this.start<SystemConfigurationResponse, Errors>()
         .withUri('/api/system-configuration')
         .withJSONBody(request)
@@ -1886,6 +1997,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TenantResponse>>}
    */
   patchTenant(tenantId: UUID, request: TenantRequest): Promise<ClientResponse<TenantResponse>> {
+    console.log('FusionAuthClient.patchTenant()');
     return this.start<TenantResponse, Errors>()
         .withUri('/api/tenant')
         .withUriSegment(tenantId)
@@ -1902,6 +2014,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ThemeResponse>>}
    */
   patchTheme(themeId: UUID, request: ThemeRequest): Promise<ClientResponse<ThemeResponse>> {
+    console.log('FusionAuthClient.patchTheme()');
     return this.start<ThemeResponse, Errors>()
         .withUri('/api/theme')
         .withUriSegment(themeId)
@@ -1918,6 +2031,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   patchUser(userId: UUID, request: UserRequest): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.patchUser()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -1934,6 +2048,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   patchUserAction(userActionId: UUID, request: UserActionRequest): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.patchUserAction()');
     return this.start<UserActionResponse, Errors>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -1950,6 +2065,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionReasonResponse>>}
    */
   patchUserActionReason(userActionReasonId: UUID, request: UserActionReasonRequest): Promise<ClientResponse<UserActionReasonResponse>> {
+    console.log('FusionAuthClient.patchUserActionReason()');
     return this.start<UserActionReasonResponse, Errors>()
         .withUri('/api/user-action-reason')
         .withUriSegment(userActionReasonId)
@@ -1966,6 +2082,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserConsentResponse>>}
    */
   patchUserConsent(userConsentId: UUID, request: UserConsentRequest): Promise<ClientResponse<UserConsentResponse>> {
+    console.log('FusionAuthClient.patchUserConsent()');
     return this.start<UserConsentResponse, Errors>()
         .withUri('/api/user/consent')
         .withUriSegment(userConsentId)
@@ -1981,6 +2098,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   reactivateApplication(applicationId: UUID): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.reactivateApplication()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -1996,6 +2114,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   reactivateUser(userId: UUID): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.reactivateUser()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -2011,6 +2130,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   reactivateUserAction(userActionId: UUID): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.reactivateUserAction()');
     return this.start<UserActionResponse, Errors>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -2026,6 +2146,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginResponse>>}
    */
   reconcileJWT(request: IdentityProviderLoginRequest): Promise<ClientResponse<LoginResponse>> {
+    console.log('FusionAuthClient.reconcileJWT()');
     return this.startAnonymous<LoginResponse, Errors>()
         .withUri('/api/jwt/reconcile')
         .withJSONBody(request)
@@ -2042,6 +2163,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   refreshEntitySearchIndex(): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.refreshEntitySearchIndex()');
     return this.start<void, void>()
         .withUri('/api/entity/search')
         .withMethod("PUT")
@@ -2057,6 +2179,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   refreshUserSearchIndex(): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.refreshUserSearchIndex()');
     return this.start<void, void>()
         .withUri('/api/user/search')
         .withMethod("PUT")
@@ -2069,6 +2192,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   regenerateReactorKeys(): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.regenerateReactorKeys()');
     return this.start<void, void>()
         .withUri('/api/reactor')
         .withMethod("PUT")
@@ -2087,6 +2211,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RegistrationResponse>>}
    */
   register(userId: UUID, request: RegistrationRequest): Promise<ClientResponse<RegistrationResponse>> {
+    console.log('FusionAuthClient.register()');
     return this.start<RegistrationResponse, Errors>()
         .withUri('/api/user/registration')
         .withUriSegment(userId)
@@ -2106,6 +2231,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   reindex(request: ReindexRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.reindex()');
     return this.start<void, Errors>()
         .withUri('/api/system/reindex')
         .withJSONBody(request)
@@ -2121,6 +2247,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   removeUserFromFamily(familyId: UUID, userId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.removeUserFromFamily()');
     return this.start<void, Errors>()
         .withUri('/api/user/family')
         .withUriSegment(familyId)
@@ -2136,6 +2263,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<VerifyEmailResponse>>}
    */
   resendEmailVerification(email: string): Promise<ClientResponse<VerifyEmailResponse>> {
+    console.log('FusionAuthClient.resendEmailVerification()');
     return this.start<VerifyEmailResponse, Errors>()
         .withUri('/api/user/verify-email')
         .withParameter('email', email)
@@ -2152,6 +2280,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<VerifyEmailResponse>>}
    */
   resendEmailVerificationWithApplicationTemplate(applicationId: UUID, email: string): Promise<ClientResponse<VerifyEmailResponse>> {
+    console.log('FusionAuthClient.resendEmailVerificationWithApplicationTemplate()');
     return this.start<VerifyEmailResponse, Errors>()
         .withUri('/api/user/verify-email')
         .withParameter('applicationId', applicationId)
@@ -2168,6 +2297,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<VerifyRegistrationResponse>>}
    */
   resendRegistrationVerification(email: string, applicationId: UUID): Promise<ClientResponse<VerifyRegistrationResponse>> {
+    console.log('FusionAuthClient.resendRegistrationVerification()');
     return this.start<VerifyRegistrationResponse, Errors>()
         .withUri('/api/user/verify-registration')
         .withParameter('email', email)
@@ -2183,6 +2313,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<APIKeyResponse>>}
    */
   retrieveAPIKey(keyId: UUID): Promise<ClientResponse<APIKeyResponse>> {
+    console.log('FusionAuthClient.retrieveAPIKey()');
     return this.start<APIKeyResponse, Errors>()
         .withUri('/api/api-key')
         .withUriSegment(keyId)
@@ -2197,6 +2328,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   retrieveAction(actionId: UUID): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.retrieveAction()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withUriSegment(actionId)
@@ -2212,6 +2344,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   retrieveActions(userId: UUID): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.retrieveActions()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withParameter('userId', userId)
@@ -2226,6 +2359,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   retrieveActionsPreventingLogin(userId: UUID): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.retrieveActionsPreventingLogin()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withParameter('userId', userId)
@@ -2242,6 +2376,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   retrieveActiveActions(userId: UUID): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.retrieveActiveActions()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withParameter('userId', userId)
@@ -2257,6 +2392,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   retrieveApplication(applicationId: UUID): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.retrieveApplication()');
     return this.start<ApplicationResponse, void>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -2270,6 +2406,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   retrieveApplications(): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.retrieveApplications()');
     return this.start<ApplicationResponse, void>()
         .withUri('/api/application')
         .withMethod("GET")
@@ -2283,6 +2420,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AuditLogResponse>>}
    */
   retrieveAuditLog(auditLogId: number): Promise<ClientResponse<AuditLogResponse>> {
+    console.log('FusionAuthClient.retrieveAuditLog()');
     return this.start<AuditLogResponse, Errors>()
         .withUri('/api/system/audit-log')
         .withUriSegment(auditLogId)
@@ -2297,6 +2435,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConnectorResponse>>}
    */
   retrieveConnector(connectorId: UUID): Promise<ClientResponse<ConnectorResponse>> {
+    console.log('FusionAuthClient.retrieveConnector()');
     return this.start<ConnectorResponse, void>()
         .withUri('/api/connector')
         .withUriSegment(connectorId)
@@ -2310,6 +2449,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConnectorResponse>>}
    */
   retrieveConnectors(): Promise<ClientResponse<ConnectorResponse>> {
+    console.log('FusionAuthClient.retrieveConnectors()');
     return this.start<ConnectorResponse, void>()
         .withUri('/api/connector')
         .withMethod("GET")
@@ -2323,6 +2463,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConsentResponse>>}
    */
   retrieveConsent(consentId: UUID): Promise<ClientResponse<ConsentResponse>> {
+    console.log('FusionAuthClient.retrieveConsent()');
     return this.start<ConsentResponse, void>()
         .withUri('/api/consent')
         .withUriSegment(consentId)
@@ -2336,6 +2477,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConsentResponse>>}
    */
   retrieveConsents(): Promise<ClientResponse<ConsentResponse>> {
+    console.log('FusionAuthClient.retrieveConsents()');
     return this.start<ConsentResponse, void>()
         .withUri('/api/consent')
         .withMethod("GET")
@@ -2352,6 +2494,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<DailyActiveUserReportResponse>>}
    */
   retrieveDailyActiveReport(applicationId: UUID, start: number, end: number): Promise<ClientResponse<DailyActiveUserReportResponse>> {
+    console.log('FusionAuthClient.retrieveDailyActiveReport()');
     return this.start<DailyActiveUserReportResponse, Errors>()
         .withUri('/api/report/daily-active-user')
         .withParameter('applicationId', applicationId)
@@ -2368,6 +2511,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EmailTemplateResponse>>}
    */
   retrieveEmailTemplate(emailTemplateId: UUID): Promise<ClientResponse<EmailTemplateResponse>> {
+    console.log('FusionAuthClient.retrieveEmailTemplate()');
     return this.start<EmailTemplateResponse, void>()
         .withUri('/api/email/template')
         .withUriSegment(emailTemplateId)
@@ -2384,6 +2528,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PreviewResponse>>}
    */
   retrieveEmailTemplatePreview(request: PreviewRequest): Promise<ClientResponse<PreviewResponse>> {
+    console.log('FusionAuthClient.retrieveEmailTemplatePreview()');
     return this.start<PreviewResponse, Errors>()
         .withUri('/api/email/template/preview')
         .withJSONBody(request)
@@ -2397,6 +2542,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EmailTemplateResponse>>}
    */
   retrieveEmailTemplates(): Promise<ClientResponse<EmailTemplateResponse>> {
+    console.log('FusionAuthClient.retrieveEmailTemplates()');
     return this.start<EmailTemplateResponse, void>()
         .withUri('/api/email/template')
         .withMethod("GET")
@@ -2410,6 +2556,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityResponse>>}
    */
   retrieveEntity(entityId: UUID): Promise<ClientResponse<EntityResponse>> {
+    console.log('FusionAuthClient.retrieveEntity()');
     return this.start<EntityResponse, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -2426,6 +2573,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityGrantResponse>>}
    */
   retrieveEntityGrant(entityId: UUID, recipientEntityId: UUID, userId: UUID): Promise<ClientResponse<EntityGrantResponse>> {
+    console.log('FusionAuthClient.retrieveEntityGrant()');
     return this.start<EntityGrantResponse, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -2443,6 +2591,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   retrieveEntityType(entityTypeId: UUID): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.retrieveEntityType()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -2456,6 +2605,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   retrieveEntityTypes(): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.retrieveEntityTypes()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withMethod("GET")
@@ -2469,6 +2619,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EventLogResponse>>}
    */
   retrieveEventLog(eventLogId: number): Promise<ClientResponse<EventLogResponse>> {
+    console.log('FusionAuthClient.retrieveEventLog()');
     return this.start<EventLogResponse, Errors>()
         .withUri('/api/system/event-log')
         .withUriSegment(eventLogId)
@@ -2483,6 +2634,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FamilyResponse>>}
    */
   retrieveFamilies(userId: UUID): Promise<ClientResponse<FamilyResponse>> {
+    console.log('FusionAuthClient.retrieveFamilies()');
     return this.start<FamilyResponse, void>()
         .withUri('/api/user/family')
         .withParameter('userId', userId)
@@ -2497,6 +2649,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FamilyResponse>>}
    */
   retrieveFamilyMembersByFamilyId(familyId: UUID): Promise<ClientResponse<FamilyResponse>> {
+    console.log('FusionAuthClient.retrieveFamilyMembersByFamilyId()');
     return this.start<FamilyResponse, void>()
         .withUri('/api/user/family')
         .withUriSegment(familyId)
@@ -2511,6 +2664,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormResponse>>}
    */
   retrieveForm(formId: UUID): Promise<ClientResponse<FormResponse>> {
+    console.log('FusionAuthClient.retrieveForm()');
     return this.start<FormResponse, void>()
         .withUri('/api/form')
         .withUriSegment(formId)
@@ -2525,6 +2679,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormFieldResponse>>}
    */
   retrieveFormField(fieldId: UUID): Promise<ClientResponse<FormFieldResponse>> {
+    console.log('FusionAuthClient.retrieveFormField()');
     return this.start<FormFieldResponse, void>()
         .withUri('/api/form/field')
         .withUriSegment(fieldId)
@@ -2538,6 +2693,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormFieldResponse>>}
    */
   retrieveFormFields(): Promise<ClientResponse<FormFieldResponse>> {
+    console.log('FusionAuthClient.retrieveFormFields()');
     return this.start<FormFieldResponse, void>()
         .withUri('/api/form/field')
         .withMethod("GET")
@@ -2550,6 +2706,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormResponse>>}
    */
   retrieveForms(): Promise<ClientResponse<FormResponse>> {
+    console.log('FusionAuthClient.retrieveForms()');
     return this.start<FormResponse, void>()
         .withUri('/api/form')
         .withMethod("GET")
@@ -2563,6 +2720,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<GroupResponse>>}
    */
   retrieveGroup(groupId: UUID): Promise<ClientResponse<GroupResponse>> {
+    console.log('FusionAuthClient.retrieveGroup()');
     return this.start<GroupResponse, Errors>()
         .withUri('/api/group')
         .withUriSegment(groupId)
@@ -2576,6 +2734,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<GroupResponse>>}
    */
   retrieveGroups(): Promise<ClientResponse<GroupResponse>> {
+    console.log('FusionAuthClient.retrieveGroups()');
     return this.start<GroupResponse, void>()
         .withUri('/api/group')
         .withMethod("GET")
@@ -2589,6 +2748,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderResponse>>}
    */
   retrieveIdentityProvider(identityProviderId: UUID): Promise<ClientResponse<IdentityProviderResponse>> {
+    console.log('FusionAuthClient.retrieveIdentityProvider()');
     return this.start<IdentityProviderResponse, Errors>()
         .withUri('/api/identity-provider')
         .withUriSegment(identityProviderId)
@@ -2605,6 +2765,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderResponse>>}
    */
   retrieveIdentityProviderByType(type: IdentityProviderType): Promise<ClientResponse<IdentityProviderResponse>> {
+    console.log('FusionAuthClient.retrieveIdentityProviderByType()');
     return this.start<IdentityProviderResponse, Errors>()
         .withUri('/api/identity-provider')
         .withParameter('type', type)
@@ -2618,6 +2779,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderResponse>>}
    */
   retrieveIdentityProviders(): Promise<ClientResponse<IdentityProviderResponse>> {
+    console.log('FusionAuthClient.retrieveIdentityProviders()');
     return this.start<IdentityProviderResponse, void>()
         .withUri('/api/identity-provider')
         .withMethod("GET")
@@ -2632,6 +2794,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ActionResponse>>}
    */
   retrieveInactiveActions(userId: UUID): Promise<ClientResponse<ActionResponse>> {
+    console.log('FusionAuthClient.retrieveInactiveActions()');
     return this.start<ActionResponse, Errors>()
         .withUri('/api/user/action')
         .withParameter('userId', userId)
@@ -2646,6 +2809,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   retrieveInactiveApplications(): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.retrieveInactiveApplications()');
     return this.start<ApplicationResponse, void>()
         .withUri('/api/application')
         .withParameter('inactive', true)
@@ -2659,6 +2823,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   retrieveInactiveUserActions(): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.retrieveInactiveUserActions()');
     return this.start<UserActionResponse, void>()
         .withUri('/api/user-action')
         .withParameter('inactive', true)
@@ -2672,6 +2837,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IntegrationResponse>>}
    */
   retrieveIntegration(): Promise<ClientResponse<IntegrationResponse>> {
+    console.log('FusionAuthClient.retrieveIntegration()');
     return this.start<IntegrationResponse, void>()
         .withUri('/api/integration')
         .withMethod("GET")
@@ -2685,6 +2851,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PublicKeyResponse>>}
    */
   retrieveJWTPublicKey(keyId: string): Promise<ClientResponse<PublicKeyResponse>> {
+    console.log('FusionAuthClient.retrieveJWTPublicKey()');
     return this.startAnonymous<PublicKeyResponse, void>()
         .withUri('/api/jwt/public-key')
         .withParameter('kid', keyId)
@@ -2699,6 +2866,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PublicKeyResponse>>}
    */
   retrieveJWTPublicKeyByApplicationId(applicationId: string): Promise<ClientResponse<PublicKeyResponse>> {
+    console.log('FusionAuthClient.retrieveJWTPublicKeyByApplicationId()');
     return this.startAnonymous<PublicKeyResponse, void>()
         .withUri('/api/jwt/public-key')
         .withParameter('applicationId', applicationId)
@@ -2712,6 +2880,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PublicKeyResponse>>}
    */
   retrieveJWTPublicKeys(): Promise<ClientResponse<PublicKeyResponse>> {
+    console.log('FusionAuthClient.retrieveJWTPublicKeys()');
     return this.startAnonymous<PublicKeyResponse, void>()
         .withUri('/api/jwt/public-key')
         .withMethod("GET")
@@ -2724,6 +2893,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<JWKSResponse>>}
    */
   retrieveJsonWebKeySet(): Promise<ClientResponse<JWKSResponse>> {
+    console.log('FusionAuthClient.retrieveJsonWebKeySet()');
     return this.startAnonymous<JWKSResponse, void>()
         .withUri('/.well-known/jwks.json')
         .withMethod("GET")
@@ -2737,6 +2907,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<KeyResponse>>}
    */
   retrieveKey(keyId: UUID): Promise<ClientResponse<KeyResponse>> {
+    console.log('FusionAuthClient.retrieveKey()');
     return this.start<KeyResponse, Errors>()
         .withUri('/api/key')
         .withUriSegment(keyId)
@@ -2750,6 +2921,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<KeyResponse>>}
    */
   retrieveKeys(): Promise<ClientResponse<KeyResponse>> {
+    console.log('FusionAuthClient.retrieveKeys()');
     return this.start<KeyResponse, void>()
         .withUri('/api/key')
         .withMethod("GET")
@@ -2763,6 +2935,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LambdaResponse>>}
    */
   retrieveLambda(lambdaId: UUID): Promise<ClientResponse<LambdaResponse>> {
+    console.log('FusionAuthClient.retrieveLambda()');
     return this.start<LambdaResponse, Errors>()
         .withUri('/api/lambda')
         .withUriSegment(lambdaId)
@@ -2776,6 +2949,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LambdaResponse>>}
    */
   retrieveLambdas(): Promise<ClientResponse<LambdaResponse>> {
+    console.log('FusionAuthClient.retrieveLambdas()');
     return this.start<LambdaResponse, void>()
         .withUri('/api/lambda')
         .withMethod("GET")
@@ -2789,6 +2963,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LambdaResponse>>}
    */
   retrieveLambdasByType(type: LambdaType): Promise<ClientResponse<LambdaResponse>> {
+    console.log('FusionAuthClient.retrieveLambdasByType()');
     return this.start<LambdaResponse, void>()
         .withUri('/api/lambda')
         .withParameter('type', type)
@@ -2806,6 +2981,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginReportResponse>>}
    */
   retrieveLoginReport(applicationId: UUID, start: number, end: number): Promise<ClientResponse<LoginReportResponse>> {
+    console.log('FusionAuthClient.retrieveLoginReport()');
     return this.start<LoginReportResponse, Errors>()
         .withUri('/api/report/login')
         .withParameter('applicationId', applicationId)
@@ -2822,6 +2998,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessageTemplateResponse>>}
    */
   retrieveMessageTemplate(messageTemplateId: UUID): Promise<ClientResponse<MessageTemplateResponse>> {
+    console.log('FusionAuthClient.retrieveMessageTemplate()');
     return this.start<MessageTemplateResponse, void>()
         .withUri('/api/message/template')
         .withUriSegment(messageTemplateId)
@@ -2836,6 +3013,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PreviewMessageTemplateResponse>>}
    */
   retrieveMessageTemplatePreview(request: PreviewMessageTemplateRequest): Promise<ClientResponse<PreviewMessageTemplateResponse>> {
+    console.log('FusionAuthClient.retrieveMessageTemplatePreview()');
     return this.start<PreviewMessageTemplateResponse, Errors>()
         .withUri('/api/message/template/preview')
         .withJSONBody(request)
@@ -2849,6 +3027,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessageTemplateResponse>>}
    */
   retrieveMessageTemplates(): Promise<ClientResponse<MessageTemplateResponse>> {
+    console.log('FusionAuthClient.retrieveMessageTemplates()');
     return this.start<MessageTemplateResponse, void>()
         .withUri('/api/message/template')
         .withMethod("GET")
@@ -2862,6 +3041,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessengerResponse>>}
    */
   retrieveMessenger(messengerId: UUID): Promise<ClientResponse<MessengerResponse>> {
+    console.log('FusionAuthClient.retrieveMessenger()');
     return this.start<MessengerResponse, void>()
         .withUri('/api/messenger')
         .withUriSegment(messengerId)
@@ -2875,6 +3055,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessengerResponse>>}
    */
   retrieveMessengers(): Promise<ClientResponse<MessengerResponse>> {
+    console.log('FusionAuthClient.retrieveMessengers()');
     return this.start<MessengerResponse, void>()
         .withUri('/api/messenger')
         .withMethod("GET")
@@ -2891,6 +3072,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MonthlyActiveUserReportResponse>>}
    */
   retrieveMonthlyActiveReport(applicationId: UUID, start: number, end: number): Promise<ClientResponse<MonthlyActiveUserReportResponse>> {
+    console.log('FusionAuthClient.retrieveMonthlyActiveReport()');
     return this.start<MonthlyActiveUserReportResponse, Errors>()
         .withUri('/api/report/monthly-active-user')
         .withParameter('applicationId', applicationId)
@@ -2907,6 +3089,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<OAuthConfigurationResponse>>}
    */
   retrieveOauthConfiguration(applicationId: UUID): Promise<ClientResponse<OAuthConfigurationResponse>> {
+    console.log('FusionAuthClient.retrieveOauthConfiguration()');
     return this.start<OAuthConfigurationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -2921,6 +3104,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<OpenIdConfiguration>>}
    */
   retrieveOpenIdConfiguration(): Promise<ClientResponse<OpenIdConfiguration>> {
+    console.log('FusionAuthClient.retrieveOpenIdConfiguration()');
     return this.startAnonymous<OpenIdConfiguration, void>()
         .withUri('/.well-known/openid-configuration')
         .withMethod("GET")
@@ -2936,6 +3120,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PasswordValidationRulesResponse>>}
    */
   retrievePasswordValidationRules(): Promise<ClientResponse<PasswordValidationRulesResponse>> {
+    console.log('FusionAuthClient.retrievePasswordValidationRules()');
     return this.startAnonymous<PasswordValidationRulesResponse, void>()
         .withUri('/api/tenant/password-validation-rules')
         .withMethod("GET")
@@ -2951,6 +3136,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PasswordValidationRulesResponse>>}
    */
   retrievePasswordValidationRulesWithTenantId(tenantId: UUID): Promise<ClientResponse<PasswordValidationRulesResponse>> {
+    console.log('FusionAuthClient.retrievePasswordValidationRulesWithTenantId()');
     return this.startAnonymous<PasswordValidationRulesResponse, void>()
         .withUri('/api/tenant/password-validation-rules')
         .withUriSegment(tenantId)
@@ -2965,6 +3151,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PendingResponse>>}
    */
   retrievePendingChildren(parentEmail: string): Promise<ClientResponse<PendingResponse>> {
+    console.log('FusionAuthClient.retrievePendingChildren()');
     return this.start<PendingResponse, Errors>()
         .withUri('/api/user/family/pending')
         .withParameter('parentEmail', parentEmail)
@@ -2978,6 +3165,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ReactorResponse>>}
    */
   retrieveReactorStatus(): Promise<ClientResponse<ReactorResponse>> {
+    console.log('FusionAuthClient.retrieveReactorStatus()');
     return this.start<ReactorResponse, void>()
         .withUri('/api/reactor')
         .withMethod("GET")
@@ -2992,6 +3180,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RecentLoginResponse>>}
    */
   retrieveRecentLogins(offset: number, limit: number): Promise<ClientResponse<RecentLoginResponse>> {
+    console.log('FusionAuthClient.retrieveRecentLogins()');
     return this.start<RecentLoginResponse, Errors>()
         .withUri('/api/user/recent-login')
         .withParameter('offset', offset)
@@ -3007,6 +3196,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RefreshTokenResponse>>}
    */
   retrieveRefreshTokenById(userId: UUID): Promise<ClientResponse<RefreshTokenResponse>> {
+    console.log('FusionAuthClient.retrieveRefreshTokenById()');
     return this.start<RefreshTokenResponse, Errors>()
         .withUri('/api/jwt/refresh')
         .withUriSegment(userId)
@@ -3021,6 +3211,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RefreshTokenResponse>>}
    */
   retrieveRefreshTokens(userId: UUID): Promise<ClientResponse<RefreshTokenResponse>> {
+    console.log('FusionAuthClient.retrieveRefreshTokens()');
     return this.start<RefreshTokenResponse, Errors>()
         .withUri('/api/jwt/refresh')
         .withParameter('userId', userId)
@@ -3036,6 +3227,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RegistrationResponse>>}
    */
   retrieveRegistration(userId: UUID, applicationId: UUID): Promise<ClientResponse<RegistrationResponse>> {
+    console.log('FusionAuthClient.retrieveRegistration()');
     return this.start<RegistrationResponse, Errors>()
         .withUri('/api/user/registration')
         .withUriSegment(userId)
@@ -3054,6 +3246,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RegistrationReportResponse>>}
    */
   retrieveRegistrationReport(applicationId: UUID, start: number, end: number): Promise<ClientResponse<RegistrationReportResponse>> {
+    console.log('FusionAuthClient.retrieveRegistrationReport()');
     return this.start<RegistrationReportResponse, Errors>()
         .withUri('/api/report/registration')
         .withParameter('applicationId', applicationId)
@@ -3070,6 +3263,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   retrieveReindexStatus(): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.retrieveReindexStatus()');
     return this.start<void, Errors>()
         .withUri('/api/system/reindex')
         .withMethod("GET")
@@ -3082,6 +3276,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SystemConfigurationResponse>>}
    */
   retrieveSystemConfiguration(): Promise<ClientResponse<SystemConfigurationResponse>> {
+    console.log('FusionAuthClient.retrieveSystemConfiguration()');
     return this.start<SystemConfigurationResponse, void>()
         .withUri('/api/system-configuration')
         .withMethod("GET")
@@ -3095,6 +3290,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TenantResponse>>}
    */
   retrieveTenant(tenantId: UUID): Promise<ClientResponse<TenantResponse>> {
+    console.log('FusionAuthClient.retrieveTenant()');
     return this.start<TenantResponse, Errors>()
         .withUri('/api/tenant')
         .withUriSegment(tenantId)
@@ -3108,6 +3304,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TenantResponse>>}
    */
   retrieveTenants(): Promise<ClientResponse<TenantResponse>> {
+    console.log('FusionAuthClient.retrieveTenants()');
     return this.start<TenantResponse, void>()
         .withUri('/api/tenant')
         .withMethod("GET")
@@ -3121,6 +3318,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ThemeResponse>>}
    */
   retrieveTheme(themeId: UUID): Promise<ClientResponse<ThemeResponse>> {
+    console.log('FusionAuthClient.retrieveTheme()');
     return this.start<ThemeResponse, Errors>()
         .withUri('/api/theme')
         .withUriSegment(themeId)
@@ -3134,6 +3332,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ThemeResponse>>}
    */
   retrieveThemes(): Promise<ClientResponse<ThemeResponse>> {
+    console.log('FusionAuthClient.retrieveThemes()');
     return this.start<ThemeResponse, void>()
         .withUri('/api/theme')
         .withMethod("GET")
@@ -3147,6 +3346,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TotalsReportResponse>>}
    */
   retrieveTotalReport(): Promise<ClientResponse<TotalsReportResponse>> {
+    console.log('FusionAuthClient.retrieveTotalReport()');
     return this.start<TotalsReportResponse, void>()
         .withUri('/api/report/totals')
         .withMethod("GET")
@@ -3160,6 +3360,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TwoFactorRecoveryCodeResponse>>}
    */
   retrieveTwoFactorRecoveryCodes(userId: UUID): Promise<ClientResponse<TwoFactorRecoveryCodeResponse>> {
+    console.log('FusionAuthClient.retrieveTwoFactorRecoveryCodes()');
     return this.start<TwoFactorRecoveryCodeResponse, Errors>()
         .withUri('/api/user/two-factor/recovery-code')
         .withUriSegment(userId)
@@ -3174,6 +3375,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUser(userId: UUID): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUser()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -3189,6 +3391,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   retrieveUserAction(userActionId: UUID): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.retrieveUserAction()');
     return this.start<UserActionResponse, void>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -3204,6 +3407,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionReasonResponse>>}
    */
   retrieveUserActionReason(userActionReasonId: UUID): Promise<ClientResponse<UserActionReasonResponse>> {
+    console.log('FusionAuthClient.retrieveUserActionReason()');
     return this.start<UserActionReasonResponse, void>()
         .withUri('/api/user-action-reason')
         .withUriSegment(userActionReasonId)
@@ -3217,6 +3421,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionReasonResponse>>}
    */
   retrieveUserActionReasons(): Promise<ClientResponse<UserActionReasonResponse>> {
+    console.log('FusionAuthClient.retrieveUserActionReasons()');
     return this.start<UserActionReasonResponse, void>()
         .withUri('/api/user-action-reason')
         .withMethod("GET")
@@ -3229,6 +3434,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   retrieveUserActions(): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.retrieveUserActions()');
     return this.start<UserActionResponse, void>()
         .withUri('/api/user-action')
         .withMethod("GET")
@@ -3243,6 +3449,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserByChangePasswordId(changePasswordId: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserByChangePasswordId()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withParameter('changePasswordId', changePasswordId)
@@ -3257,6 +3464,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserByEmail(email: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserByEmail()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withParameter('email', email)
@@ -3271,6 +3479,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserByLoginId(loginId: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserByLoginId()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withParameter('loginId', loginId)
@@ -3285,6 +3494,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserByUsername(username: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserByUsername()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withParameter('username', username)
@@ -3300,6 +3510,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserByVerificationId(verificationId: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserByVerificationId()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withParameter('verificationId', verificationId)
@@ -3314,6 +3525,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserCommentResponse>>}
    */
   retrieveUserComments(userId: UUID): Promise<ClientResponse<UserCommentResponse>> {
+    console.log('FusionAuthClient.retrieveUserComments()');
     return this.start<UserCommentResponse, Errors>()
         .withUri('/api/user/comment')
         .withUriSegment(userId)
@@ -3328,6 +3540,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserConsentResponse>>}
    */
   retrieveUserConsent(userConsentId: UUID): Promise<ClientResponse<UserConsentResponse>> {
+    console.log('FusionAuthClient.retrieveUserConsent()');
     return this.start<UserConsentResponse, void>()
         .withUri('/api/user/consent')
         .withUriSegment(userConsentId)
@@ -3342,6 +3555,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserConsentResponse>>}
    */
   retrieveUserConsents(userId: UUID): Promise<ClientResponse<UserConsentResponse>> {
+    console.log('FusionAuthClient.retrieveUserConsents()');
     return this.start<UserConsentResponse, void>()
         .withUri('/api/user/consent')
         .withParameter('userId', userId)
@@ -3356,6 +3570,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserInfoFromAccessToken(encodedJWT: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserInfoFromAccessToken()');
     return this.startAnonymous<UserResponse, OAuthError>()
         .withUri('/oauth2/userinfo')
         .withAuthorization('Bearer ' + encodedJWT)
@@ -3372,6 +3587,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderLinkResponse>>}
    */
   retrieveUserLink(identityProviderId: UUID, identityProviderUserId: string, userId: UUID): Promise<ClientResponse<IdentityProviderLinkResponse>> {
+    console.log('FusionAuthClient.retrieveUserLink()');
     return this.start<IdentityProviderLinkResponse, Errors>()
         .withUri('/api/identity-provider/link')
         .withParameter('identityProviderId', identityProviderId)
@@ -3389,6 +3605,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderLinkResponse>>}
    */
   retrieveUserLinksByUserId(identityProviderId: UUID, userId: UUID): Promise<ClientResponse<IdentityProviderLinkResponse>> {
+    console.log('FusionAuthClient.retrieveUserLinksByUserId()');
     return this.start<IdentityProviderLinkResponse, Errors>()
         .withUri('/api/identity-provider/link')
         .withParameter('identityProviderId', identityProviderId)
@@ -3408,6 +3625,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginReportResponse>>}
    */
   retrieveUserLoginReport(applicationId: UUID, userId: UUID, start: number, end: number): Promise<ClientResponse<LoginReportResponse>> {
+    console.log('FusionAuthClient.retrieveUserLoginReport()');
     return this.start<LoginReportResponse, Errors>()
         .withUri('/api/report/login')
         .withParameter('applicationId', applicationId)
@@ -3429,6 +3647,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginReportResponse>>}
    */
   retrieveUserLoginReportByLoginId(applicationId: UUID, loginId: string, start: number, end: number): Promise<ClientResponse<LoginReportResponse>> {
+    console.log('FusionAuthClient.retrieveUserLoginReportByLoginId()');
     return this.start<LoginReportResponse, Errors>()
         .withUri('/api/report/login')
         .withParameter('applicationId', applicationId)
@@ -3448,6 +3667,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RecentLoginResponse>>}
    */
   retrieveUserRecentLogins(userId: UUID, offset: number, limit: number): Promise<ClientResponse<RecentLoginResponse>> {
+    console.log('FusionAuthClient.retrieveUserRecentLogins()');
     return this.start<RecentLoginResponse, Errors>()
         .withUri('/api/user/recent-login')
         .withParameter('userId', userId)
@@ -3464,6 +3684,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   retrieveUserUsingJWT(encodedJWT: string): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.retrieveUserUsingJWT()');
     return this.startAnonymous<UserResponse, Errors>()
         .withUri('/api/user')
         .withAuthorization('Bearer ' + encodedJWT)
@@ -3477,6 +3698,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<VersionResponse>>}
    */
   retrieveVersion(): Promise<ClientResponse<VersionResponse>> {
+    console.log('FusionAuthClient.retrieveVersion()');
     return this.start<VersionResponse, Errors>()
         .withUri('/api/system/version')
         .withMethod("GET")
@@ -3490,6 +3712,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<WebhookResponse>>}
    */
   retrieveWebhook(webhookId: UUID): Promise<ClientResponse<WebhookResponse>> {
+    console.log('FusionAuthClient.retrieveWebhook()');
     return this.start<WebhookResponse, void>()
         .withUri('/api/webhook')
         .withUriSegment(webhookId)
@@ -3503,6 +3726,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<WebhookResponse>>}
    */
   retrieveWebhooks(): Promise<ClientResponse<WebhookResponse>> {
+    console.log('FusionAuthClient.retrieveWebhooks()');
     return this.start<WebhookResponse, void>()
         .withUri('/api/webhook')
         .withMethod("GET")
@@ -3541,6 +3765,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeRefreshToken(token: string, userId: UUID, applicationId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeRefreshToken()');
     return this.start<void, Errors>()
         .withUri('/api/jwt/refresh')
         .withParameter('token', token)
@@ -3557,6 +3782,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeRefreshTokenById(tokenId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeRefreshTokenById()');
     return this.start<void, Errors>()
         .withUri('/api/jwt/refresh')
         .withUriSegment(tokenId)
@@ -3571,6 +3797,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeRefreshTokenByToken(token: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeRefreshTokenByToken()');
     return this.start<void, Errors>()
         .withUri('/api/jwt/refresh')
         .withParameter('token', token)
@@ -3585,6 +3812,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeRefreshTokensByApplicationId(applicationId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeRefreshTokensByApplicationId()');
     return this.start<void, Errors>()
         .withUri('/api/jwt/refresh')
         .withParameter('applicationId', applicationId)
@@ -3599,6 +3827,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeRefreshTokensByUserId(userId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeRefreshTokensByUserId()');
     return this.start<void, Errors>()
         .withUri('/api/jwt/refresh')
         .withParameter('userId', userId)
@@ -3614,6 +3843,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeRefreshTokensByUserIdForApplication(userId: UUID, applicationId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeRefreshTokensByUserIdForApplication()');
     return this.start<void, Errors>()
         .withUri('/api/jwt/refresh')
         .withParameter('userId', userId)
@@ -3629,6 +3859,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   revokeUserConsent(userConsentId: UUID): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.revokeUserConsent()');
     return this.start<void, void>()
         .withUri('/api/user/consent')
         .withUriSegment(userConsentId)
@@ -3643,6 +3874,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<AuditLogSearchResponse>>}
    */
   searchAuditLogs(request: AuditLogSearchRequest): Promise<ClientResponse<AuditLogSearchResponse>> {
+    console.log('FusionAuthClient.searchAuditLogs()');
     return this.start<AuditLogSearchResponse, void>()
         .withUri('/api/system/audit-log/search')
         .withJSONBody(request)
@@ -3657,6 +3889,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntitySearchResponse>>}
    */
   searchEntities(request: EntitySearchRequest): Promise<ClientResponse<EntitySearchResponse>> {
+    console.log('FusionAuthClient.searchEntities()');
     return this.start<EntitySearchResponse, Errors>()
         .withUri('/api/entity/search')
         .withJSONBody(request)
@@ -3671,6 +3904,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntitySearchResponse>>}
    */
   searchEntitiesByIds(ids: Array<string>): Promise<ClientResponse<EntitySearchResponse>> {
+    console.log('FusionAuthClient.searchEntitiesByIds()');
     return this.start<EntitySearchResponse, Errors>()
         .withUri('/api/entity/search')
         .withParameter('ids', ids)
@@ -3685,6 +3919,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityGrantSearchResponse>>}
    */
   searchEntityGrants(request: EntityGrantSearchRequest): Promise<ClientResponse<EntityGrantSearchResponse>> {
+    console.log('FusionAuthClient.searchEntityGrants()');
     return this.start<EntityGrantSearchResponse, Errors>()
         .withUri('/api/entity/grant/search')
         .withJSONBody(request)
@@ -3699,6 +3934,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeSearchResponse>>}
    */
   searchEntityTypes(request: EntityTypeSearchRequest): Promise<ClientResponse<EntityTypeSearchResponse>> {
+    console.log('FusionAuthClient.searchEntityTypes()');
     return this.start<EntityTypeSearchResponse, void>()
         .withUri('/api/entity/type/search')
         .withJSONBody(request)
@@ -3713,6 +3949,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EventLogSearchResponse>>}
    */
   searchEventLogs(request: EventLogSearchRequest): Promise<ClientResponse<EventLogSearchResponse>> {
+    console.log('FusionAuthClient.searchEventLogs()');
     return this.start<EventLogSearchResponse, void>()
         .withUri('/api/system/event-log/search')
         .withJSONBody(request)
@@ -3727,6 +3964,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginRecordSearchResponse>>}
    */
   searchLoginRecords(request: LoginRecordSearchRequest): Promise<ClientResponse<LoginRecordSearchResponse>> {
+    console.log('FusionAuthClient.searchLoginRecords()');
     return this.start<LoginRecordSearchResponse, void>()
         .withUri('/api/system/login-record/search')
         .withJSONBody(request)
@@ -3743,6 +3981,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to searchUsersByIds, use that method instead.
    */
   searchUsers(ids: Array<string>): Promise<ClientResponse<SearchResponse>> {
+    console.log('FusionAuthClient.searchUsers()');
     return this.start<SearchResponse, Errors>()
         .withUri('/api/user/search')
         .withParameter('ids', ids)
@@ -3757,6 +3996,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SearchResponse>>}
    */
   searchUsersByIds(ids: Array<string>): Promise<ClientResponse<SearchResponse>> {
+    console.log('FusionAuthClient.searchUsersByIds()');
     return this.start<SearchResponse, Errors>()
         .withUri('/api/user/search')
         .withParameter('ids', ids)
@@ -3772,6 +4012,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SearchResponse>>}
    */
   searchUsersByQuery(request: SearchRequest): Promise<ClientResponse<SearchResponse>> {
+    console.log('FusionAuthClient.searchUsersByQuery()');
     return this.start<SearchResponse, Errors>()
         .withUri('/api/user/search')
         .withJSONBody(request)
@@ -3789,6 +4030,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to searchUsersByQuery, use that method instead.
    */
   searchUsersByQueryString(request: SearchRequest): Promise<ClientResponse<SearchResponse>> {
+    console.log('FusionAuthClient.searchUsersByQueryString()');
     return this.start<SearchResponse, Errors>()
         .withUri('/api/user/search')
         .withJSONBody(request)
@@ -3805,6 +4047,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SendResponse>>}
    */
   sendEmail(emailTemplateId: UUID, request: SendRequest): Promise<ClientResponse<SendResponse>> {
+    console.log('FusionAuthClient.sendEmail()');
     return this.start<SendResponse, Errors>()
         .withUri('/api/email/send')
         .withUriSegment(emailTemplateId)
@@ -3820,6 +4063,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   sendFamilyRequestEmail(request: FamilyEmailRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.sendFamilyRequestEmail()');
     return this.start<void, Errors>()
         .withUri('/api/user/family/request')
         .withJSONBody(request)
@@ -3834,6 +4078,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   sendPasswordlessCode(request: PasswordlessSendRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.sendPasswordlessCode()');
     return this.startAnonymous<void, Errors>()
         .withUri('/api/passwordless/send')
         .withJSONBody(request)
@@ -3850,6 +4095,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to sendTwoFactorCodeForEnableDisable, use that method instead.
    */
   sendTwoFactorCode(request: TwoFactorSendRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.sendTwoFactorCode()');
     return this.start<void, Errors>()
         .withUri('/api/two-factor/send')
         .withJSONBody(request)
@@ -3864,6 +4110,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   sendTwoFactorCodeForEnableDisable(request: TwoFactorSendRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.sendTwoFactorCodeForEnableDisable()');
     return this.start<void, Errors>()
         .withUri('/api/two-factor/send')
         .withJSONBody(request)
@@ -3880,6 +4127,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to sendTwoFactorCodeForLoginUsingMethod, use that method instead.
    */
   sendTwoFactorCodeForLogin(twoFactorId: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.sendTwoFactorCodeForLogin()');
     return this.startAnonymous<void, Errors>()
         .withHeader('Content-Type', 'text/plain')
         .withUri('/api/two-factor/send')
@@ -3896,6 +4144,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   sendTwoFactorCodeForLoginUsingMethod(twoFactorId: string, request: TwoFactorSendRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.sendTwoFactorCodeForLoginUsingMethod()');
     return this.startAnonymous<void, Errors>()
         .withUri('/api/two-factor/send')
         .withUriSegment(twoFactorId)
@@ -3912,6 +4161,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderStartLoginResponse>>}
    */
   startIdentityProviderLogin(request: IdentityProviderStartLoginRequest): Promise<ClientResponse<IdentityProviderStartLoginResponse>> {
+    console.log('FusionAuthClient.startIdentityProviderLogin()');
     return this.start<IdentityProviderStartLoginResponse, Errors>()
         .withUri('/api/identity-provider/start')
         .withJSONBody(request)
@@ -3927,6 +4177,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<PasswordlessStartResponse>>}
    */
   startPasswordlessLogin(request: PasswordlessStartRequest): Promise<ClientResponse<PasswordlessStartResponse>> {
+    console.log('FusionAuthClient.startPasswordlessLogin()');
     return this.start<PasswordlessStartResponse, Errors>()
         .withUri('/api/passwordless/start')
         .withJSONBody(request)
@@ -3946,6 +4197,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TwoFactorStartResponse>>}
    */
   startTwoFactorLogin(request: TwoFactorStartRequest): Promise<ClientResponse<TwoFactorStartResponse>> {
+    console.log('FusionAuthClient.startTwoFactorLogin()');
     return this.start<TwoFactorStartResponse, Errors>()
         .withUri('/api/two-factor/start')
         .withJSONBody(request)
@@ -3960,6 +4212,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LoginResponse>>}
    */
   twoFactorLogin(request: TwoFactorLoginRequest): Promise<ClientResponse<LoginResponse>> {
+    console.log('FusionAuthClient.twoFactorLogin()');
     return this.startAnonymous<LoginResponse, Errors>()
         .withUri('/api/two-factor/login')
         .withJSONBody(request)
@@ -3975,6 +4228,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<APIKeyResponse>>}
    */
   updateAPIKey(apiKeyId: UUID, request: APIKeyRequest): Promise<ClientResponse<APIKeyResponse>> {
+    console.log('FusionAuthClient.updateAPIKey()');
     return this.start<APIKeyResponse, Errors>()
         .withUri('/api/api-key')
         .withUriSegment(apiKeyId)
@@ -3991,6 +4245,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   updateApplication(applicationId: UUID, request: ApplicationRequest): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.updateApplication()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -4008,6 +4263,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ApplicationResponse>>}
    */
   updateApplicationRole(applicationId: UUID, roleId: UUID, request: ApplicationRequest): Promise<ClientResponse<ApplicationResponse>> {
+    console.log('FusionAuthClient.updateApplicationRole()');
     return this.start<ApplicationResponse, Errors>()
         .withUri('/api/application')
         .withUriSegment(applicationId)
@@ -4026,6 +4282,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConnectorResponse>>}
    */
   updateConnector(connectorId: UUID, request: ConnectorRequest): Promise<ClientResponse<ConnectorResponse>> {
+    console.log('FusionAuthClient.updateConnector()');
     return this.start<ConnectorResponse, Errors>()
         .withUri('/api/connector')
         .withUriSegment(connectorId)
@@ -4042,6 +4299,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ConsentResponse>>}
    */
   updateConsent(consentId: UUID, request: ConsentRequest): Promise<ClientResponse<ConsentResponse>> {
+    console.log('FusionAuthClient.updateConsent()');
     return this.start<ConsentResponse, Errors>()
         .withUri('/api/consent')
         .withUriSegment(consentId)
@@ -4058,6 +4316,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EmailTemplateResponse>>}
    */
   updateEmailTemplate(emailTemplateId: UUID, request: EmailTemplateRequest): Promise<ClientResponse<EmailTemplateResponse>> {
+    console.log('FusionAuthClient.updateEmailTemplate()');
     return this.start<EmailTemplateResponse, Errors>()
         .withUri('/api/email/template')
         .withUriSegment(emailTemplateId)
@@ -4074,6 +4333,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityResponse>>}
    */
   updateEntity(entityId: UUID, request: EntityRequest): Promise<ClientResponse<EntityResponse>> {
+    console.log('FusionAuthClient.updateEntity()');
     return this.start<EntityResponse, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -4090,6 +4350,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   updateEntityType(entityTypeId: UUID, request: EntityTypeRequest): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.updateEntityType()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -4107,6 +4368,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<EntityTypeResponse>>}
    */
   updateEntityTypePermission(entityTypeId: UUID, permissionId: UUID, request: EntityTypeRequest): Promise<ClientResponse<EntityTypeResponse>> {
+    console.log('FusionAuthClient.updateEntityTypePermission()');
     return this.start<EntityTypeResponse, Errors>()
         .withUri('/api/entity/type')
         .withUriSegment(entityTypeId)
@@ -4125,6 +4387,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormResponse>>}
    */
   updateForm(formId: UUID, request: FormRequest): Promise<ClientResponse<FormResponse>> {
+    console.log('FusionAuthClient.updateForm()');
     return this.start<FormResponse, Errors>()
         .withUri('/api/form')
         .withUriSegment(formId)
@@ -4141,6 +4404,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<FormFieldResponse>>}
    */
   updateFormField(fieldId: UUID, request: FormFieldRequest): Promise<ClientResponse<FormFieldResponse>> {
+    console.log('FusionAuthClient.updateFormField()');
     return this.start<FormFieldResponse, Errors>()
         .withUri('/api/form/field')
         .withUriSegment(fieldId)
@@ -4157,6 +4421,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<GroupResponse>>}
    */
   updateGroup(groupId: UUID, request: GroupRequest): Promise<ClientResponse<GroupResponse>> {
+    console.log('FusionAuthClient.updateGroup()');
     return this.start<GroupResponse, Errors>()
         .withUri('/api/group')
         .withUriSegment(groupId)
@@ -4173,6 +4438,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IdentityProviderResponse>>}
    */
   updateIdentityProvider(identityProviderId: UUID, request: IdentityProviderRequest): Promise<ClientResponse<IdentityProviderResponse>> {
+    console.log('FusionAuthClient.updateIdentityProvider()');
     return this.start<IdentityProviderResponse, Errors>()
         .withUri('/api/identity-provider')
         .withUriSegment(identityProviderId)
@@ -4188,6 +4454,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<IntegrationResponse>>}
    */
   updateIntegrations(request: IntegrationRequest): Promise<ClientResponse<IntegrationResponse>> {
+    console.log('FusionAuthClient.updateIntegrations()');
     return this.start<IntegrationResponse, Errors>()
         .withUri('/api/integration')
         .withJSONBody(request)
@@ -4203,6 +4470,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<KeyResponse>>}
    */
   updateKey(keyId: UUID, request: KeyRequest): Promise<ClientResponse<KeyResponse>> {
+    console.log('FusionAuthClient.updateKey()');
     return this.start<KeyResponse, Errors>()
         .withUri('/api/key')
         .withUriSegment(keyId)
@@ -4219,6 +4487,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<LambdaResponse>>}
    */
   updateLambda(lambdaId: UUID, request: LambdaRequest): Promise<ClientResponse<LambdaResponse>> {
+    console.log('FusionAuthClient.updateLambda()');
     return this.start<LambdaResponse, Errors>()
         .withUri('/api/lambda')
         .withUriSegment(lambdaId)
@@ -4235,6 +4504,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessageTemplateResponse>>}
    */
   updateMessageTemplate(messageTemplateId: UUID, request: MessageTemplateRequest): Promise<ClientResponse<MessageTemplateResponse>> {
+    console.log('FusionAuthClient.updateMessageTemplate()');
     return this.start<MessageTemplateResponse, Errors>()
         .withUri('/api/message/template')
         .withUriSegment(messageTemplateId)
@@ -4251,6 +4521,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<MessengerResponse>>}
    */
   updateMessenger(messengerId: UUID, request: MessengerRequest): Promise<ClientResponse<MessengerResponse>> {
+    console.log('FusionAuthClient.updateMessenger()');
     return this.start<MessengerResponse, Errors>()
         .withUri('/api/messenger')
         .withUriSegment(messengerId)
@@ -4267,6 +4538,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<RegistrationResponse>>}
    */
   updateRegistration(userId: UUID, request: RegistrationRequest): Promise<ClientResponse<RegistrationResponse>> {
+    console.log('FusionAuthClient.updateRegistration()');
     return this.start<RegistrationResponse, Errors>()
         .withUri('/api/user/registration')
         .withUriSegment(userId)
@@ -4282,6 +4554,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<SystemConfigurationResponse>>}
    */
   updateSystemConfiguration(request: SystemConfigurationRequest): Promise<ClientResponse<SystemConfigurationResponse>> {
+    console.log('FusionAuthClient.updateSystemConfiguration()');
     return this.start<SystemConfigurationResponse, Errors>()
         .withUri('/api/system-configuration')
         .withJSONBody(request)
@@ -4297,6 +4570,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<TenantResponse>>}
    */
   updateTenant(tenantId: UUID, request: TenantRequest): Promise<ClientResponse<TenantResponse>> {
+    console.log('FusionAuthClient.updateTenant()');
     return this.start<TenantResponse, Errors>()
         .withUri('/api/tenant')
         .withUriSegment(tenantId)
@@ -4313,6 +4587,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ThemeResponse>>}
    */
   updateTheme(themeId: UUID, request: ThemeRequest): Promise<ClientResponse<ThemeResponse>> {
+    console.log('FusionAuthClient.updateTheme()');
     return this.start<ThemeResponse, Errors>()
         .withUri('/api/theme')
         .withUriSegment(themeId)
@@ -4329,6 +4604,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserResponse>>}
    */
   updateUser(userId: UUID, request: UserRequest): Promise<ClientResponse<UserResponse>> {
+    console.log('FusionAuthClient.updateUser()');
     return this.start<UserResponse, Errors>()
         .withUri('/api/user')
         .withUriSegment(userId)
@@ -4345,6 +4621,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionResponse>>}
    */
   updateUserAction(userActionId: UUID, request: UserActionRequest): Promise<ClientResponse<UserActionResponse>> {
+    console.log('FusionAuthClient.updateUserAction()');
     return this.start<UserActionResponse, Errors>()
         .withUri('/api/user-action')
         .withUriSegment(userActionId)
@@ -4361,6 +4638,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserActionReasonResponse>>}
    */
   updateUserActionReason(userActionReasonId: UUID, request: UserActionReasonRequest): Promise<ClientResponse<UserActionReasonResponse>> {
+    console.log('FusionAuthClient.updateUserActionReason()');
     return this.start<UserActionReasonResponse, Errors>()
         .withUri('/api/user-action-reason')
         .withUriSegment(userActionReasonId)
@@ -4377,6 +4655,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<UserConsentResponse>>}
    */
   updateUserConsent(userConsentId: UUID, request: UserConsentRequest): Promise<ClientResponse<UserConsentResponse>> {
+    console.log('FusionAuthClient.updateUserConsent()');
     return this.start<UserConsentResponse, Errors>()
         .withUri('/api/user/consent')
         .withUriSegment(userConsentId)
@@ -4393,6 +4672,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<WebhookResponse>>}
    */
   updateWebhook(webhookId: UUID, request: WebhookRequest): Promise<ClientResponse<WebhookResponse>> {
+    console.log('FusionAuthClient.updateWebhook()');
     return this.start<WebhookResponse, Errors>()
         .withUri('/api/webhook')
         .withUriSegment(webhookId)
@@ -4409,6 +4689,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   upsertEntityGrant(entityId: UUID, request: EntityGrantRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.upsertEntityGrant()');
     return this.start<void, Errors>()
         .withUri('/api/entity')
         .withUriSegment(entityId)
@@ -4427,6 +4708,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   validateDevice(user_code: string, client_id: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.validateDevice()');
     return this.startAnonymous<void, void>()
         .withUri('/oauth2/device/validate')
         .withParameter('user_code', user_code)
@@ -4445,6 +4727,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<ValidateResponse>>}
    */
   validateJWT(encodedJWT: string): Promise<ClientResponse<ValidateResponse>> {
+    console.log('FusionAuthClient.validateJWT()');
     return this.startAnonymous<ValidateResponse, void>()
         .withUri('/api/jwt/validate')
         .withAuthorization('Bearer ' + encodedJWT)
@@ -4461,6 +4744,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to verifyEmailAddress and changed to take a JSON request body, use that method instead.
    */
   verifyEmail(verificationId: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.verifyEmail()');
     return this.startAnonymous<void, Errors>()
         .withHeader('Content-Type', 'text/plain')
         .withUri('/api/user/verify-email')
@@ -4481,6 +4765,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   verifyEmailAddress(request: VerifyEmailRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.verifyEmailAddress()');
     return this.startAnonymous<void, Errors>()
         .withUri('/api/user/verify-email')
         .withJSONBody(request)
@@ -4497,6 +4782,7 @@ export class FusionAuthClient {
    * @deprecated This method has been renamed to verifyUserRegistration and changed to take a JSON request body, use that method instead.
    */
   verifyRegistration(verificationId: string): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.verifyRegistration()');
     return this.startAnonymous<void, Errors>()
         .withHeader('Content-Type', 'text/plain')
         .withUri('/api/user/verify-registration')
@@ -4517,6 +4803,7 @@ export class FusionAuthClient {
    * @returns {Promise<ClientResponse<void>>}
    */
   verifyUserRegistration(request: VerifyRegistrationRequest): Promise<ClientResponse<void>> {
+    console.log('FusionAuthClient.verifyUserRegistration()');
     return this.startAnonymous<void, Errors>()
         .withUri('/api/user/verify-registration')
         .withJSONBody(request)
